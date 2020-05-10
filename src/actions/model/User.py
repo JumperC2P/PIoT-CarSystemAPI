@@ -52,3 +52,21 @@ class UserModel:
                                 bindparams(username = username).bindparams(password = password))
         return user
 
+    def checkUserName(self, username):
+        user = db.engine.execute(text("select * from Users where username= :username").
+                                bindparams(username = username))
+        return user
+
+    def getLastUserId(self):
+        users = db.engine.execute(text("select * from Users order by user_id desc limit 1"))
+        for user in users:
+            return user.user_id
+
+    def add(self, user_id, username, password, first_name, last_name, email, role):
+
+        newUser = User(user_id = user_id, username = username, password = password, first_name=first_name, last_name=last_name, email=email, role = role)
+
+        db.session.add(newUser)
+        db.session.commit()
+
+        return newUser

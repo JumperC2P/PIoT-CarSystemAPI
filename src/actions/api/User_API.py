@@ -20,7 +20,53 @@ class User_API:
     def login():
         if (request.content_type.startswith("application/x-www-form-urlencoded")):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
-            user = User_Service().login(content['username'], content['password'])
-            return jsonify({'result': [dict(row) for row in user]})
+            try:
+                user = User_Service().login(content['username'], content['password'])
+
+                if (user):
+                    user = jsonify({'result': [dict(row) for row in user]})
+                    return user
+            except:
+                return "Please check your username and password."
+            
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @user_api.route("/register", methods = ["POST"])
+    def register():
+        if (request.content_type.startswith("application/x-www-form-urlencoded")):
+            content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
+            try:
+                user = User_Service().register(content['username'], content['password'], content['first_name'], content['last_name'], content['email'], content['role'])
+                if (user):
+                    new_user = dict()
+                    new_user['user_id'] = user.user_id
+                    new_user['username'] = user.username
+                    new_user['password'] = user.password
+                    new_user['first_name'] = user.first_name
+                    new_user['last_name'] = user.last_name
+                    new_user['email'] = user.email
+                    user = jsonify({'result': new_user})
+                    return user
+            except:
+                return "Please check your information."
+            
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @user_api.route("/checkUserName", methods = ["POST"])
+    def checkUserName():
+        if (request.content_type.startswith("application/x-www-form-urlencoded")):
+            content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
+            try:
+                result = User_Service().checkUserName(content['username'])
+                result = jsonify({'result': result})
+                return result
+            except:
+                return "Please check your information."
+            
+            return jsonify({'result': []})
         else:
             return "Wrong Content Type"

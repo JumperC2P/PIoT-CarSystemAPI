@@ -6,11 +6,17 @@ from actions.api.CarMake_API import car_make_api
 from actions.api.Car_API import car_api
 from actions.db_connection.DBConnection import DBConnection
 import pymysql
+from flask_cors import CORS
+
+
 pymysql.install_as_MySQLdb()
 
+app = Flask(__name__)
+app.config["DEBUG"] = True
+CORS(app)
+
 class Car_System_Entry:
-    app = Flask(__name__)
-    app.config["DEBUG"] = True
+    
     
     db = DBConnection().db
 
@@ -31,4 +37,4 @@ class Car_System_Entry:
 
 
 if __name__ == '__main__':
-    Car_System_Entry().app.run()
+    app.run()
