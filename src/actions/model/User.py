@@ -1,4 +1,5 @@
 from flask import Flask, Blueprint, request, jsonify, render_template
+from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from ..db_connection.DBConnection import DBConnection
@@ -35,6 +36,19 @@ class UserSchema(ma.Schema):
         # Fields to expose.
         fields = ("user_id", "username", "password", "email", "first_name", "last_name", "role")
 
+userSchema = UserSchema()
+usersSchema = UserSchema(many = True)
 
-    
+class UserModel:
+
+    def getUser(self):
+        user = User.query.all()
+        result = usersSchema.dump(user)
+
+        return result
+
+    def login(self, username, password):
+        user = db.engine.execute(text("select * from Users where username= :username and password = :password").
+                                bindparams(username = username).bindparams(password = password))
+        return user
 

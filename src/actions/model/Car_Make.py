@@ -23,3 +23,12 @@ class CarMakeSchema(ma.Schema):
     class Meta:
         # Fields to expose.
         fields = ("id", "name")
+
+carMakeSchema = CarMakeSchema()
+carMakesSchema = CarMakeSchema(many = True)
+
+class CarMakeModel:
+
+    def getCarMake(self):
+        carMakes = Car_Make.query.all()
+        return carMakesSchema.dump(carMakes)
