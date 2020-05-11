@@ -29,6 +29,6 @@ carMakesSchema = CarMakeSchema(many = True)
 
 class CarMakeModel:
 
-    def getCarMake(self):
+    def getCarMakes(self):
         carMakes = Car_Make.query.all()
         return carMakesSchema.dump(carMakes)

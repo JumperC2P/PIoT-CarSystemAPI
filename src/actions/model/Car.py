@@ -1,8 +1,9 @@
 from flask import Flask, Blueprint, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import text
+from sqlalchemy import text, and_
 from flask_marshmallow import Marshmallow
 from ..db_connection.DBConnection import DBConnection
+from sqlalchemy.sql import select
 
 db = DBConnection().db
 ma = DBConnection().ma
@@ -53,4 +54,36 @@ class CarModel:
                                     + "from Cars c, Car_Make cm "
                                     + "where c.make = cm.id ")) # text().execution_options(autocommit=True)
         return result
-    
+
+    def getSeatNumbers(self):
+        result = db.engine.execute(text("select distinct seat_number from Cars order by seat_number asc"))
+        return result
+
+    def getBodyTypes(self):
+        result = db.engine.execute(text("select distinct body_type from Cars order by body_type asc"))
+        return result
+
+    def getColors(self):
+        result = db.engine.execute(text("select distinct color from Cars order by color asc"))
+        return result
+
+    def getCarsWithparams(self, params):
+
+        sql = select([text(" c.car_id, c.year, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \
+                .where(
+                and_(
+                    text("c.make = cm.id "),
+                    text("cm.name in :make" if len(params['makes'])!=0 else "1=:make"),
+                    text("c.color in :color" if len(params['colors'])!=0 else "1=:color"),
+                    text("c.body_type in :type" if len(params['types'])!=0 else "1=:type"),
+                    text("c.seat_number in :seat" if len(params['seats'])!=0 else "1=:seat")
+                )
+            )
+
+        result = db.engine.execute(sql, 
+                    make=params['makes'] if len(params['makes'])!=0 else "1",
+                    color=params['colors'] if len(params['colors'])!=0 else "1",
+                    type=params['types'] if len(params['types'])!=0 else "1",
+                    seat=params['seats'] if len(params['seats'])!=0 else "1"
+                )
+        return result
