@@ -19,5 +19,5 @@ class User_Service:
         user = UserModel().checkUserName(username)
         print(user)
         for u in user:
-            return True
-        return False 
+            return False 
+        return True

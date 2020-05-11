@@ -16,8 +16,9 @@ class Car(db.Model):
     seat_number = db.Column(db.Integer)
     car_status = db.Column(db.Text)
     car_location = db.Column(db.Text)
+    color = db.Column(db.Text)
 
-    def __init__(self, car_id, year, make, body_type, seat_number, car_status, car_location):
+    def __init__(self, car_id, year, make, body_type, seat_number, car_status, car_location, color):
         self.car_id = car_id
         self.year = year
         self.make = make
@@ -25,6 +26,7 @@ class Car(db.Model):
         self.seat_number = seat_number
         self.car_status = car_status
         self.car_location = car_location
+        self.color = color
 
 
 class CarSchema(ma.Schema):
@@ -34,7 +36,7 @@ class CarSchema(ma.Schema):
     
     class Meta:
         # Fields to expose.
-        fields = ("car_id", "year", "make", "body_type", "seat_number", "car_status", "car_location")
+        fields = ("car_id", "year", "make", "body_type", "seat_number", "car_status", "car_location", "color")
 
 
 carSchema = CarSchema()
@@ -47,7 +49,7 @@ class CarModel:
         return carsSchema.dump(cars)
 
     def getCarsWithMake(self):
-        result = db.engine.execute(text("select c.car_id, c.year, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location "
+        result = db.engine.execute(text("select c.car_id, c.year, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color "
                                     + "from Cars c, Car_Make cm "
                                     + "where c.make = cm.id ")) # text().execution_options(autocommit=True)
         return result

@@ -21,10 +21,10 @@ class User_API:
         if (request.content_type.startswith("application/x-www-form-urlencoded")):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
-                user = User_Service().login(content['username'], content['password'])
-
-                if (user):
-                    user = jsonify({'result': [dict(row) for row in user]})
+                users = User_Service().login(content['username'], content['password'])
+                user = {'result': [dict(row) for row in users]}
+                if (len(user['result']) != 0):
+                    user = jsonify(user)
                     return user
             except:
                 return "Please check your username and password."
@@ -47,6 +47,7 @@ class User_API:
                     new_user['first_name'] = user.first_name
                     new_user['last_name'] = user.last_name
                     new_user['email'] = user.email
+                    new_user['role'] = user.role
                     user = jsonify({'result': new_user})
                     return user
             except:
