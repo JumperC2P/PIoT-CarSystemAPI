@@ -1,6 +1,0 @@
-pip install flask
-pip install Flask-API
-pip install Flask-SQLAlchemy
-pip install flask-marshmallow
-pip install python-dotenv
-pip install -U flask-cors

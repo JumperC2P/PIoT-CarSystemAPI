@@ -13,6 +13,11 @@ flask-cors = "*"
 python-dotenv = "*"
 marshmallow = "*"
 hashlib = "==20081119"
+pymysql = "*"
+actions = "*"
+api = "*"
+simplejson = "*"
+marshmallow-sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"

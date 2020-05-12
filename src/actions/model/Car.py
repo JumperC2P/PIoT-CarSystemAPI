@@ -11,7 +11,7 @@ ma = DBConnection().ma
 class Car(db.Model):
     __tablename__ = "Cars"
     car_id = db.Column(db.Integer, primary_key = True)
-    year = db.Column(db.Integer)
+    cost = db.Column(db.Numeric)
     make = db.Column(db.Text)
     body_type = db.Column(db.Text)
     seat_number = db.Column(db.Integer)
@@ -19,9 +19,9 @@ class Car(db.Model):
     car_location = db.Column(db.Text)
     color = db.Column(db.Text)
 
-    def __init__(self, car_id, year, make, body_type, seat_number, car_status, car_location, color):
+    def __init__(self, car_id, cost, make, body_type, seat_number, car_status, car_location, color):
         self.car_id = car_id
-        self.year = year
+        self.cost = cost
         self.make = make
         self.body_type = body_type
         self.seat_number = seat_number
@@ -37,7 +37,7 @@ class CarSchema(ma.Schema):
     
     class Meta:
         # Fields to expose.
-        fields = ("car_id", "year", "make", "body_type", "seat_number", "car_status", "car_location", "color")
+        fields = ("car_id", "cost", "make", "body_type", "seat_number", "car_status", "car_location", "color")
 
 
 carSchema = CarSchema()
@@ -50,7 +50,7 @@ class CarModel:
         return carsSchema.dump(cars)
 
     def getCarsWithMake(self):
-        result = db.engine.execute(text("select c.car_id, c.year, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color "
+        result = db.engine.execute(text("select c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color "
                                     + "from Cars c, Car_Make cm "
                                     + "where c.make = cm.id ")) # text().execution_options(autocommit=True)
         return result
@@ -67,9 +67,15 @@ class CarModel:
         result = db.engine.execute(text("select distinct color from Cars order by color asc"))
         return result
 
+    def find_by_car_id(self, car_id):
+        sql = select([text(" c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \
+                .where(and_(text("c.make = cm.id "), text("c.car_id = :car_id")))
+        result = db.engine.execute(sql, car_id=car_id)
+        return result
+
     def getCarsWithparams(self, params):
 
-        sql = select([text(" c.car_id, c.year, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \
+        sql = select([text(" c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \
                 .where(
                 and_(
                     text("c.make = cm.id "),

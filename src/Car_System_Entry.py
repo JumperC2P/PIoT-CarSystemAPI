@@ -8,16 +8,14 @@ from actions.db_connection.DBConnection import DBConnection
 import pymysql
 from flask_cors import CORS
 
-
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
 
+
 class Car_System_Entry:
-    
-    
     db = DBConnection().db
 
     # Update HOST and PASSWORD appropriately.
