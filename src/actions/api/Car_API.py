@@ -103,7 +103,7 @@ class Car_API:
 
     @car_api.route("/getCarsWithparams", methods=["POST"])
     def getCarsWithparams():
-        if (request.content_type.startswith("application/json")):
+        if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())
             # try:
             users = User_Service().login(content['username'], content['password'])

@@ -40,6 +40,10 @@ recordsSchema = RecordSchema(many=True)
 
 class RecordModel:
 
+    def find_records_by_user_id_with_all_return(self, user_id):
+        sql = db.text("select record_id, car_id, user_id, is_return, est_rent_date, est_return_date from Records where is_return = 0 and user_id = :user_id")
+        return db.engine.execute(sql, user_id=user_id)
+
     def add(self, car_id, est_rent_date, est_return_date, user_id):
         sql = db.text(
             "Insert into Records (car_id, user_id, est_rent_date, est_return_date) values (:car_id, :user_id, :est_rent_date, :est_return_date)").execution_options(

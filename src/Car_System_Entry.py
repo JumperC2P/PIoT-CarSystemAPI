@@ -4,6 +4,7 @@ from flask_marshmallow import Marshmallow
 from actions.api.User_API import user_api
 from actions.api.CarMake_API import car_make_api
 from actions.api.Car_API import car_api
+from actions.api.Record_API import record_api
 from actions.db_connection.DBConnection import DBConnection
 import pymysql
 from flask_cors import CORS
@@ -32,6 +33,7 @@ class Car_System_Entry:
     app.register_blueprint(user_api)
     app.register_blueprint(car_make_api)
     app.register_blueprint(car_api)
+    app.register_blueprint(record_api)
 
 
 if __name__ == '__main__':
