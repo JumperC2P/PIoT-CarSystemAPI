@@ -16,20 +16,28 @@ app.config["DEBUG"] = True
 CORS(app)
 
 
+# coding=UTF-8
 class Car_System_Entry:
+    """The object is the start point of the application"""
+
+    # create a database connection
     db = DBConnection().db
 
     # Update HOST and PASSWORD appropriately.
-    HOST = "127.0.0.1"
+    HOST = "35.189.29.28"
+    # HOST = "127.0.0.1"
     USER = "root"
     PASSWORD = "Pa55W0rd"
     DATABASE = "piot"
 
+    # database connection setting
     app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://{}:{}@{}/{}".format(USER, PASSWORD, HOST, DATABASE)
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
+    # initiate the application
     db.init_app(app)
 
+    # register all the api object to the application
     app.register_blueprint(user_api)
     app.register_blueprint(car_make_api)
     app.register_blueprint(car_api)

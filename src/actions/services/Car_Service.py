@@ -1,3 +1,4 @@
+from ..constants.Sys_Constants import car_status
 from ..model.Car import Car
 from ..model.Car import CarModel
 from ..model.Car_Make import Car_Make
@@ -33,6 +34,18 @@ class Car_Service:
         return None
 
     def book(self, book_info, user_id):
-        est_rent_date = datetime.strptime(book_info['est_rent_date'], '%d/%m/%Y')
-        est_return_date = datetime.strptime(book_info['est_return_date'], '%d/%m/%Y')
-        return RecordModel().add(book_info['car_id'], est_rent_date, est_return_date, user_id)
+
+        # add record
+        est_rent_date = datetime.strptime(book_info['est_rent_date'], '%Y-%m-%d %H:%M:%S')
+        est_return_date = datetime.strptime(book_info['est_return_date'], '%Y-%m-%d %H:%M:%S')
+        RecordModel().add(book_info['car_id'], est_rent_date, est_return_date, user_id)
+
+        #update car status
+        CarModel().update_status(book_info['car_id'], car_status['B'])
+
+        record = RecordModel().find_newest()
+
+        for r in record:
+            return dict(r)['record_id']
+        return None
+

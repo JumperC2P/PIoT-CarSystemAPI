@@ -73,6 +73,10 @@ class CarModel:
         result = db.engine.execute(sql, car_id=car_id)
         return result
 
+    def update_status(self, car_id, status):
+        sql = text("update Cars set car_status = :status where car_id = :car_id").execution_options(autocommit=True)
+        db.engine.execute(sql, status=status, car_id=car_id)
+
     def getCarsWithparams(self, params):
 
         sql = select([text(" c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \

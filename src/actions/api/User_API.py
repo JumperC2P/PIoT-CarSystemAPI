@@ -18,12 +18,14 @@ class User_API:
 
     @user_api.route("/login", methods = ["POST"])
     def login():
-        if (request.content_type.startswith("application/x-www-form-urlencoded")):
+        if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
-                users = User_Service().login(content['username'], content['password'])
-                user = {'result': [dict(row) for row in users]}
-                if (len(user['result']) != 0):
+                user = User_Service().login(content['username'], content['password'])
+                if user:
+                    user['password'] = content['password']
+                    print(user)
+                    user = {'result': [user]}
                     user = jsonify(user)
                     return user
             except:
@@ -35,11 +37,11 @@ class User_API:
 
     @user_api.route("/register", methods = ["POST"])
     def register():
-        if (request.content_type.startswith("application/x-www-form-urlencoded")):
+        if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
                 user = User_Service().register(content['username'], content['password'], content['first_name'], content['last_name'], content['email'], content['role'])
-                if (user):
+                if user:
                     new_user = dict()
                     new_user['user_id'] = user.user_id
                     new_user['username'] = user.username
@@ -59,7 +61,7 @@ class User_API:
 
     @user_api.route("/checkUserName", methods = ["POST"])
     def checkUserName():
-        if (request.content_type.startswith("application/x-www-form-urlencoded")):
+        if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
                 result = User_Service().checkUserName(content['username'])

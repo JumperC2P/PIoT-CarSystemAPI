@@ -1,9 +1,25 @@
 
 
 class ParserUtils:
+    """ParserUtils is a parser"""
 
     #https://www.programcreek.com/python/example/86195/flask.request.content_type
     def parse_qs_plus(self, _dict):
+        """ parse_qs_plus
+
+            parse_qs_plus is used to transform ResultProxy objects to Dictionary objects.
+
+            Parameters
+            ----------
+            _dict: ResultProxy
+                ResultProxy objects
+
+            Returns
+            -------
+            bool
+                Dictionary objects transformed from the input
+
+        """
         data = {}
         if(type(_dict) != dict):
             return _dict
