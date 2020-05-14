@@ -17,7 +17,7 @@ class User_Service:
         last_user_id = UserModel().getLastUserId()
         if last_user_id:
             new_user_id = last_user_id + 1
-            return UserModel().add(new_user_id, username, password, first_name, last_name, email, role)
+            return UserModel().add(new_user_id, username, mysql323.hash(password), first_name, last_name, email, role)
         else:
             return None
 

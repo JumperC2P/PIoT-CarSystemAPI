@@ -45,7 +45,7 @@ class User_API:
                     new_user = dict()
                     new_user['user_id'] = user.user_id
                     new_user['username'] = user.username
-                    new_user['password'] = user.password
+                    new_user['password'] = content['password']
                     new_user['first_name'] = user.first_name
                     new_user['last_name'] = user.last_name
                     new_user['email'] = user.email
