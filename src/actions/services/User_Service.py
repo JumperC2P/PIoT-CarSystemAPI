@@ -21,7 +21,7 @@ class User_Service:
         else:
             return None
 
-    def checkUserName(username):
+    def checkUserName(self, username):
         user = UserModel().checkUserName(username)
         print(user)
         for u in user:

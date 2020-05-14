@@ -18,7 +18,7 @@ CORS(app)
 
 # coding=UTF-8
 class Car_System_Entry:
-    """The object is the start point of the application"""
+    """Car_System_Entry.py is the start point of the application"""
 
     # create a database connection
     db = DBConnection().db

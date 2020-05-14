@@ -32,6 +32,16 @@ class Google_Calendar_Utils:
     """Google_Calendar_Utils is a utility to use google calendar api in order to add and delete events."""
 
     def delete(self, record_id):
+        """ delete(
+
+           delete can be used to delete the event on the google calendar based on the record id.
+
+           Parameters
+           ----------
+           record_id: the record id you want to delete
+               int
+
+       """
         # Call the Calendar API.
         now = datetime.utcnow().isoformat() + "Z"  # "Z" indicates UTC time.
         print("Getting the upcoming 10 events.")
