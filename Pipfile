@@ -20,9 +20,11 @@ marshmallow-sqlalchemy = "*"
 google-api-python-client = "*"
 google-auth-httplib2 = "*"
 google-auth-oauthlib = "*"
-oauth2client = "*"
 httplib2 = "*"
 passlib = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
+oauth2client = "*"
 
 [requires]
 python_version = "3.7"

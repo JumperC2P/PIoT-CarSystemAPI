@@ -5,19 +5,11 @@ class ParserUtils:
 
     #https://www.programcreek.com/python/example/86195/flask.request.content_type
     def parse_qs_plus(self, _dict):
-        """ parse_qs_plus
+        """ parse_qs_plus is used to transform ResultProxy objects to Dictionary objects.
 
-            parse_qs_plus is used to transform ResultProxy objects to Dictionary objects.
+        :param: _dict(ResultProxy objects): ResultProxy
 
-            Parameters
-            ----------
-            _dict: ResultProxy
-                ResultProxy objects
-
-            Returns
-            -------
-            bool
-                Dictionary objects transformed from the input
+        :return: Dictionary objects transformed from the input
 
         """
         data = {}

@@ -1,3 +1,5 @@
+"""Sys_Constants contains some constants used in the application."""
+
 car_status = dict()
 car_status['A'] = "Available"
 car_status['B'] = "Booked"

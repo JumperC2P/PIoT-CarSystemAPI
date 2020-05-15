@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>actions.services package &mdash; Panda_Rental_APIs 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="actions.utils package" href="actions.utils.html" />
+    <link rel="prev" title="actions.model package" href="actions.model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Panda_Rental_APIs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="actions.html">actions package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="actions.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="actions.api.html">actions.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.constants.html">actions.constants package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.db_connection.html">actions.db_connection package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.model.html">actions.model package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">actions.services package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="actions.utils.html">actions.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="actions.html#module-actions">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Panda_Rental_APIs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">src</a> &raquo;</li>
+        
+          <li><a href="actions.html">actions package</a> &raquo;</li>
+        
+      <li>actions.services package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/actions.services.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="actions-services-package">
+<h1>actions.services package<a class="headerlink" href="#actions-services-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-actions.services.Car_Service">
+<span id="actions-services-car-service-module"></span><h2>actions.services.Car_Service module<a class="headerlink" href="#module-actions.services.Car_Service" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="actions.services.Car_Service.Car_Service">
+<em class="property">class </em><code class="sig-prename descclassname">actions.services.Car_Service.</code><code class="sig-name descname">Car_Service</code><a class="headerlink" href="#actions.services.Car_Service.Car_Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Car_Service is a logic layer of car actions.</p>
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.find_by_car_id">
+<code class="sig-name descname">find_by_car_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.find_by_car_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get the car details which match the parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>car_id(int): car id</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dictionary object of the car</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getBodyTypes">
+<code class="sig-name descname">getBodyTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getBodyTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get all the body types.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getCarsWithMake">
+<code class="sig-name descname">getCarsWithMake</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getCarsWithMake" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get all the cars information with manufacturer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getCarsWithparams">
+<code class="sig-name descname">getCarsWithparams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getCarsWithparams" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get the car details which match the parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>params(JSON object): contains 4 list: make, seat numbers, body types, colors, which are the parameters of each factor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of car details</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getColors">
+<code class="sig-name descname">getColors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getColors" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get all the car color.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getMakes">
+<code class="sig-name descname">getMakes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getMakes" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get all manufacturer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Car_Service.Car_Service.getSeatNumbers">
+<code class="sig-name descname">getSeatNumbers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Car_Service.Car_Service.getSeatNumbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to get all seat numbers.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-actions.services.Record_Service">
+<span id="actions-services-record-service-module"></span><h2>actions.services.Record_Service module<a class="headerlink" href="#module-actions.services.Record_Service" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="actions.services.Record_Service.Record_Service">
+<em class="property">class </em><code class="sig-prename descclassname">actions.services.Record_Service.</code><code class="sig-name descname">Record_Service</code><a class="headerlink" href="#actions.services.Record_Service.Record_Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Record_Service is a logic layer of booking actions.</p>
+<dl class="py method">
+<dt id="actions.services.Record_Service.Record_Service.book">
+<code class="sig-name descname">book</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">book_info</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Record_Service.Record_Service.book" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to book a car.
+It will add a record and change the status of the booked car.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>book_info(JSON object): the booking information sent from web page</p>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>user_id(int): the user id of the current user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return</dt><dd><p>the record</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Record_Service.Record_Service.cancel_booking">
+<code class="sig-name descname">cancel_booking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">record</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Record_Service.Record_Service.cancel_booking" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to cancel a car booking, update the status of car and the flag of returning in Records table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>record(Record object): the record which is going to be canceled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Record_Service.Record_Service.find_history_by_user_id">
+<code class="sig-name descname">find_history_by_user_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Record_Service.Record_Service.find_history_by_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it will find the booking history of the current user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>user_id(int): the user id of current user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return</dt><dd><p>the booking records of the current user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.Record_Service.Record_Service.find_records_by_user_id_with_all_return">
+<code class="sig-name descname">find_records_by_user_id_with_all_return</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.Record_Service.Record_Service.find_records_by_user_id_with_all_return" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it is used to check whether the current user has no return cars or booking car.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param:user_id(int)</dt>
+<dd class="field-odd"><p>the user id of current user</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:return</dt><dd><p>if there are cars not returned or booked by the user, return False; otherwise, return True</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-actions.services.User_Service">
+<span id="actions-services-user-service-module"></span><h2>actions.services.User_Service module<a class="headerlink" href="#module-actions.services.User_Service" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="actions.services.User_Service.User_Service">
+<em class="property">class </em><code class="sig-prename descclassname">actions.services.User_Service.</code><code class="sig-name descname">User_Service</code><a class="headerlink" href="#actions.services.User_Service.User_Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>User_Service is a logic layer of user actions.</p>
+<dl class="py method">
+<dt id="actions.services.User_Service.User_Service.checkUserName">
+<code class="sig-name descname">checkUserName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.User_Service.User_Service.checkUserName" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it will check whether or not the username is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>username(string):  username</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if the username is available , return True. If not, return False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.User_Service.User_Service.login">
+<code class="sig-name descname">login</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.User_Service.User_Service.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it will use the username and password encrypted to query whether or not the user is exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>username(string): login username</p>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>password(string): login password</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the user object, if the user is exist or the authentication is valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.services.User_Service.User_Service.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em>, <em class="sig-param"><span class="n">first_name</span></em>, <em class="sig-param"><span class="n">last_name</span></em>, <em class="sig-param"><span class="n">email</span></em>, <em class="sig-param"><span class="n">role</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.services.User_Service.User_Service.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the method, it will add a new user into database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>username(string):  username</p>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>password(string):  password</p>
+</dd>
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>first_name(string):  first name of the user</p>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>last_name(string):  last name of the user</p>
+</dd>
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>email(string):  the user’s email</p>
+</dd>
+<dt class="field-even">Param</dt>
+<dd class="field-even"><p>role(string):  role of the user</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the user object, if the user is added into the database.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-actions.services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-actions.services" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="actions.utils.html" class="btn btn-neutral float-right" title="actions.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="actions.model.html" class="btn btn-neutral float-left" title="actions.model package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Panda_Rental
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

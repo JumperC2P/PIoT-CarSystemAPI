@@ -17,9 +17,14 @@ record_api = Blueprint("record_api", __name__)
 
 
 class Record_API:
+    """Record_API organises all the functions which are related to book cars."""
+
 
     @record_api.route("/checkRecord", methods=["POST"])
     def checkRecord():
+        """Endpoint to check whether the user has booked or rented a car
+        :return: If the user can book a new car, return True; otherwise, return False
+        """
         if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())
             try:
@@ -36,6 +41,9 @@ class Record_API:
 
     @record_api.route("/getRecords", methods=["POST"])
     def getRecords():
+        """Endpoint to get the records of the user
+        :return: a list of records of the user
+        """
         if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())
             try:
@@ -52,6 +60,9 @@ class Record_API:
 
     @record_api.route("/book", methods=["POST"])
     def book():
+        """Endpoint to book a car
+        :return: the result of booking operatino
+        """
         if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())
             # try:
@@ -93,6 +104,9 @@ class Record_API:
 
     @record_api.route("/cancel_booking", methods=["POST"])
     def cancel_booking():
+        """Endpoint to cancel a booking
+        :return: the result of canceling a booking
+        """
         if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())
             try:

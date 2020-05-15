@@ -8,16 +8,16 @@ from ..services.User_Service import User_Service
 
 user_api = Blueprint("user_api", __name__)
 
+
 class User_API:
+    """User_API organises all the functions which are related to user operation."""
 
-    @user_api.route("/user", methods = ["GET"])
-    def getUser():
-        result = UserModel().getUser()
-
-        return jsonify(result)
-
-    @user_api.route("/login", methods = ["POST"])
+    @user_api.route("/login", methods=["POST"])
     def login():
+        """
+        Endpoint to login.
+        :return: the user information
+        """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
@@ -30,17 +30,22 @@ class User_API:
                     return user
             except:
                 return "Please check your username and password."
-            
+
             return jsonify({'result': []})
         else:
             return "Wrong Content Type"
 
-    @user_api.route("/register", methods = ["POST"])
+    @user_api.route("/register", methods=["POST"])
     def register():
+        """
+        Endpoint to register.
+        :return: the user information
+        """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
-                user = User_Service().register(content['username'], content['password'], content['first_name'], content['last_name'], content['email'], content['role'])
+                user = User_Service().register(content['username'], content['password'], content['first_name'],
+                                               content['last_name'], content['email'], content['role'])
                 if user:
                     new_user = dict()
                     new_user['user_id'] = user.user_id
@@ -54,13 +59,17 @@ class User_API:
                     return user
             except:
                 return "Please check your information."
-            
+
             return jsonify({'result': []})
         else:
             return "Wrong Content Type"
 
-    @user_api.route("/checkUserName", methods = ["POST"])
+    @user_api.route("/checkUserName", methods=["POST"])
     def checkUserName():
+        """
+        Endpoint to check whether the username is taken.
+        :return: if the username is ok to use, return True; otherwise, return False
+        """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
@@ -69,7 +78,7 @@ class User_API:
                 return result
             except:
                 return "Please check your information."
-            
+
             return jsonify({'result': []})
         else:
             return "Wrong Content Type"

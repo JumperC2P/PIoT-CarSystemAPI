@@ -2,7 +2,6 @@ from flask import Flask;
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from actions.api.User_API import user_api
-from actions.api.CarMake_API import car_make_api
 from actions.api.Car_API import car_api
 from actions.api.Record_API import record_api
 from actions.db_connection.DBConnection import DBConnection
@@ -39,7 +38,6 @@ class Car_System_Entry:
 
     # register all the api object to the application
     app.register_blueprint(user_api)
-    app.register_blueprint(car_make_api)
     app.register_blueprint(car_api)
     app.register_blueprint(record_api)
 

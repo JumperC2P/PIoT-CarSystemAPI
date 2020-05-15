@@ -5,9 +5,11 @@ from flask_marshmallow import Marshmallow
 db = SQLAlchemy()
 ma = Marshmallow()
 
+
 class Role(db.Model):
+    """Role object to store data from database"""
     __tablename__ = "Roles"
-    role_id = db.Column(db.Integer, primary_key = True)
+    role_id = db.Column(db.Integer, primary_key=True)
     role_name = db.Column(db.Text)
 
     def __init__(self, role_id, role_name):
@@ -16,10 +18,11 @@ class Role(db.Model):
 
 
 class RoleSchema(ma.Schema):
+    """Role Schema for database connection"""
     # Reference: https://github.com/marshmallow-code/marshmallow/issues/377#issuecomment-261628415
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-    
+
     class Meta:
         # Fields to expose.
         fields = ("role_id", "role_name")
