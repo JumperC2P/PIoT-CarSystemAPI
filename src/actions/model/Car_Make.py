@@ -38,7 +38,9 @@ class CarMakeModel:
 
     def getCarMakes(self):
         """Query for all cars makes
+
         :return: a list of cars
+
         """
         carMakes = Car_Make.query.all()
         return carMakesSchema.dump(carMakes)

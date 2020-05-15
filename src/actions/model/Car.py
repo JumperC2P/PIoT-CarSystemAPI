@@ -54,14 +54,18 @@ class CarModel:
 
     def getCars(self):
         """Query for all cars information
+
         :return: a list of cars
+
         """
         cars = Car.query.all()
         return carsSchema.dump(cars)
 
     def getCarsWithMake(self):
         """Query for all cars information with manufacturer name
+
         :return: a list of cars
+
         """
         result = db.engine.execute(text(
             "select c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color "
@@ -71,28 +75,36 @@ class CarModel:
 
     def getSeatNumbers(self):
         """Query for all the seat numbers
+
         :return: a list of seat number
+
         """
         result = db.engine.execute(text("select distinct seat_number from Cars order by seat_number asc"))
         return result
 
     def getBodyTypes(self):
         """Query for all the body types
+
         :return: a list of body types
+
         """
         result = db.engine.execute(text("select distinct body_type from Cars order by body_type asc"))
         return result
 
     def getColors(self):
         """Query for all the colors
+
         :return: a list of colors
+
         """
         result = db.engine.execute(text("select distinct color from Cars order by color asc"))
         return result
 
     def find_by_car_id(self, car_id):
         """Find the car information with indicated car id
+
         :return: a Car object
+
         """
         sql = select([text(
             " c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \
@@ -108,7 +120,9 @@ class CarModel:
 
     def getCarsWithparams(self, params):
         """Find cars information with indicated conditions
+
         :return: a list of cars
+
         """
         sql = select([text(
             " c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.car_location, c.color from Cars c, Car_Make cm ")]) \

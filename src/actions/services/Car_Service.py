@@ -41,6 +41,7 @@ class Car_Service:
         :param: params(JSON object): contains 4 list: make, seat numbers, body types, colors, which are the parameters of each factor
 
         :return: a list of car details
+
         """
         return CarModel().getCarsWithparams(params)
 
@@ -50,6 +51,7 @@ class Car_Service:
         :param: car_id(int): car id
 
         :return: a dictionary object of the car
+
         """
         result = CarModel().find_by_car_id(car_id)
         for car in result:

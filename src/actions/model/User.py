@@ -7,10 +7,11 @@ from ..db_connection.DBConnection import DBConnection
 db = DBConnection().db
 ma = DBConnection().ma
 
+
 class User(db.Model):
     """User object to store data from database"""
     __tablename__ = "Users"
-    user_id = db.Column(db.Integer, primary_key = True)
+    user_id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.Text)
     password = db.Column(db.Text)
     email = db.Column(db.Text)
@@ -34,19 +35,24 @@ class UserSchema(ma.Schema):
     # Reference: https://github.com/marshmallow-code/marshmallow/issues/377#issuecomment-261628415
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-    
+
     class Meta:
         # Fields to expose.
         fields = ("user_id", "username", "password", "email", "first_name", "last_name", "role")
 
+
 userSchema = UserSchema()
-usersSchema = UserSchema(many = True)
+usersSchema = UserSchema(many=True)
+
 
 class UserModel:
     """UserModel is used to connect with the Records table in database"""
+
     def getUser(self):
         """Query for all user information
+
         :return: a list of users
+
         """
         user = User.query.all()
         result = usersSchema.dump(user)
@@ -55,23 +61,29 @@ class UserModel:
 
     def login(self, username, password):
         """Query for all user information
+
         :return: a list of users
+
         """
         user = db.engine.execute(text("select * from Users where username= :username and password = :password").
-                                bindparams(username = username).bindparams(password = password))
+                                 bindparams(username=username).bindparams(password=password))
         return user
 
     def checkUserName(self, username):
         """Query for the indicated username
+
         :return: the user object
+
         """
         user = db.engine.execute(text("select * from Users where username= :username").
-                                bindparams(username = username))
+                                 bindparams(username=username))
         return user
 
     def getLastUserId(self):
         """Find the latest user id
+
         :return: the latest user id
+
         """
         users = db.engine.execute(text("select * from Users order by user_id desc limit 1"))
         for user in users:
@@ -79,9 +91,12 @@ class UserModel:
 
     def add(self, user_id, username, password, first_name, last_name, email, role):
         """add a user
+
         :return: the user object
+
         """
-        newUser = User(user_id = user_id, username = username, password = password, first_name=first_name, last_name=last_name, email=email, role = role)
+        newUser = User(user_id=user_id, username=username, password=password, first_name=first_name,
+                       last_name=last_name, email=email, role=role)
 
         db.session.add(newUser)
         db.session.commit()

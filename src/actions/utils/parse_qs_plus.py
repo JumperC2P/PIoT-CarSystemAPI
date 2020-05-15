@@ -24,7 +24,7 @@ class ParserUtils:
                 else:
                     _list = []
                     for item in v:
-                        _list.append(parse_qs_plus(item))
+                        _list.append(self.parse_qs_plus(item))
                     data[k] = _list
             else:
                 data[k] = v

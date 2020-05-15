@@ -16,7 +16,9 @@ class User_API:
     def login():
         """
         Endpoint to login.
+
         :return: the user information
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -39,7 +41,9 @@ class User_API:
     def register():
         """
         Endpoint to register.
+
         :return: the user information
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -68,7 +72,9 @@ class User_API:
     def checkUserName():
         """
         Endpoint to check whether the username is taken.
+
         :return: if the username is ok to use, return True; otherwise, return False
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))

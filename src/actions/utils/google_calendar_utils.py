@@ -34,8 +34,8 @@ class Google_Calendar_Utils:
     def delete(self, record_id):
         """The delete can be used to delete the event on the google calendar based on the record id.
 
-        Args:
-            record_id(int): the record id you want to delete
+
+        :param: record_id(int): the record id you want to delete
 
         """
         # Call the Calendar API.
@@ -61,13 +61,12 @@ class Google_Calendar_Utils:
     def insert(self, title, car_location, description, est_rent_date, est_return_date, email):
         """insert can be used to insert the event on the google calendar.
 
-        Args:
-            title(string): the title of the event
-            car_location(string): the car location
-            description(string): the description to the new evnent
-            est_rent_date(string): the rent date
-            est_return_date(string): the estimated return date
-            email(string): the client's email
+        :param: title(string): the title of the event
+        :param: car_location(string): the car location
+        :param: description(string): the description to the new evnent
+        :param: est_rent_date(string): the rent date
+        :param: est_return_date(string): the estimated return date
+        :param: email(string): the client's email
 
         """
         time_start = "{}T{}+10:00".format(est_rent_date.split(" ")[0], est_rent_date.split(" ")[1])

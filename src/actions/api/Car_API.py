@@ -21,7 +21,9 @@ class Car_API:
     @car_api.route("/getAllCars", methods=["POST"])
     def getWholeCars():
         """Endpoint to get all car details.
+
         :return: a list of all the car details
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -40,7 +42,9 @@ class Car_API:
     @car_api.route("/getMakes", methods=["POST"])
     def getMakes():
         """Endpoint to get all car manufacturer.
+
         :return: a list of manufacturer
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -60,7 +64,9 @@ class Car_API:
     @car_api.route("/getSeatNumbers", methods=["POST"])
     def getSeatNumbers():
         """Endpoint to get all seat numbers.
+
         :return: a list of seat numbers
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -79,7 +85,9 @@ class Car_API:
     @car_api.route("/getBodyTypes", methods=["POST"])
     def getBodyTypes():
         """Endpoint to get all the body types of cars.
+
         :return: a list of body types of cars
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -98,7 +106,9 @@ class Car_API:
     @car_api.route("/getColors", methods=["POST"])
     def getColors():
         """Endpoint to get all the color of cars.
+
         :return: a list of color of cars
+
         """
         if request.content_type.startswith("application/x-www-form-urlencoded"):
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
@@ -117,7 +127,9 @@ class Car_API:
     @car_api.route("/getCarsWithparams", methods=["POST"])
     def getCarsWithparams():
         """Endpoint to get car details with indicated conditions
+
         :return: a list of cars with indicated conditions
+
         """
         if request.content_type.startswith("application/json"):
             content = json.loads(request.get_data())

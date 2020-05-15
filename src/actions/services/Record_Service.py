@@ -41,8 +41,7 @@ class Record_Service:
         :param: book_info(JSON object): the booking information sent from web page
         :param: user_id(int): the user id of the current user
 
-        :return
-            the record
+        :return: the record
 
         """
         # add record
