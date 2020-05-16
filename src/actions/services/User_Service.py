@@ -53,5 +53,5 @@ class User_Service:
         user = UserModel().checkUserName(username)
         print(user)
         for u in user:
-            return False
-        return True
+            return dict(u)
+        return None

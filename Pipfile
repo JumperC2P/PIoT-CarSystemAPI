@@ -25,6 +25,9 @@ passlib = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 oauth2client = "*"
+flask-socketio = "*"
+eventlet = "*"
+python-socketio-client = "*"
 
 [requires]
 python_version = "3.7"

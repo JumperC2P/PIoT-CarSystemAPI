@@ -80,6 +80,10 @@ class User_API:
             content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
             try:
                 result = User_Service().checkUserName(content['username'])
+                if result:
+                    result = False
+                else:
+                    result = True
                 result = jsonify({'result': result})
                 return result
             except:

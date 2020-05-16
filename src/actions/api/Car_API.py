@@ -16,8 +16,6 @@ car_api = Blueprint("car_api", __name__)
 class Car_API:
     """Car_API is the entry point of car actions."""
 
-    # Endpoint to show all people.
-    # Endpoint to show all people.
     @car_api.route("/getAllCars", methods=["POST"])
     def getWholeCars():
         """Endpoint to get all car details.

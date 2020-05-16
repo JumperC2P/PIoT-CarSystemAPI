@@ -33,6 +33,19 @@ class Record_Service:
         histories = RecordModel().find_history_by_user_id(user_id)
         return [dict(h) for h in histories]
 
+    def find_by_car_id_and_user_id(self, car_id, user_id):
+        """In the method, it will find the booking record of the current user .
+
+        :param: car_id(int): the car id
+        :param: user_id(int): the user id of current user
+
+        :return
+            the booking record of the current user
+
+        """
+        histories = RecordModel().find_by_car_id_and_user_id(car_id, user_id)
+        return [dict(h) for h in histories]
+
     def book(self, book_info, user_id):
         """In the method, it is used to book a car.
         It will add a record and change the status of the booked car.
@@ -72,3 +85,9 @@ class Record_Service:
 
         # update car status
         CarModel().update_status(car_id, car_status['A'])
+
+    def find_by_car_id_and_user_id_and_return_and_cancel(self, car_id, user_id, is_return, is_cancel):
+        records = RecordModel().find_by_car_id_and_user_id_and_return_and_cancel(car_id, user_id, 0, 0)
+        for r in records:
+            return dict(r)
+        return None

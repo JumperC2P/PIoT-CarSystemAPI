@@ -50,11 +50,20 @@ class RecordModel:
     def find_records_by_user_id_with_all_return(self, user_id):
         """Query for checking whether the current user has no return cars or booking car.
 
-        :return: a list of cars which are booking or rented
+        :return: a list of records which are booking or rented
 
         """
         sql = db.text("select record_id, car_id, user_id, is_return, est_rent_date, est_return_date from Records where is_return = 0 and is_cancel = 0 and user_id = :user_id")
         return db.engine.execute(sql, user_id=user_id)
+
+    def find_by_car_id_and_user_id_and_return_and_cancel(self, car_id, user_id, is_return, is_cancel):
+        """Query for the booking record of the user
+
+        :return: the booking record of the user
+
+        """
+        sql = db.text("select record_id, car_id, user_id, is_return, est_rent_date, est_return_date from Records where car_id = :car_id and user_id = :user_id and is_return = :is_return and is_cancel = :is_cancel")
+        return db.engine.execute(sql, car_id=car_id, user_id=user_id, is_return=is_return, is_cancel=is_cancel)
 
     def find_newest(self):
         """Query for the latest record
@@ -101,4 +110,11 @@ class RecordModel:
         """
         sql = text("update Records set is_cancel = :cancel where record_id = :record_id").execution_options(autocommit=True)
         db.engine.execute(sql, cancel=status, record_id=record_id)
+
+    def update_is_return(self, record_id, status):
+        """Update the is_return flag in record
+
+        """
+        sql = text("update Records set is_return = :is_return where record_id = :record_id").execution_options(autocommit=True)
+        db.engine.execute(sql, is_return=status, record_id=record_id)
 
