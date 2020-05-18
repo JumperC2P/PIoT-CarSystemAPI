@@ -48,6 +48,14 @@ class Car_System_Entry:
 
     @socketio.on('mp_socket')
     def mp_socket(data):
+        """
+        The function will listen requests by socket with the port 5000, which is the port of the application.
+        After analysing the data from agent pi, it will emit the result to agent pi and let it continue its work.
+
+        :param data sent from agent pi
+
+        """
+
         reason = Socket_Handler().action_decider(data[0])
         message = [{"Reason": reason}]
         emit('ap_socket', message)
