@@ -84,7 +84,7 @@ class Record_API:
                         return jsonify({'result': {'code': '1', 'message': 'Cannot find the car.'}})
 
                     # book the car
-                    record_id = Car_Service().book(content['book_info'], user['user_id'])  # car_id, est_rent_date, est_return_date, user_id
+                    record_id = Record_Service().book(content['book_info'], user['user_id'])  # car_id, est_rent_date, est_return_date, user_id
                     seat = (str(car['seat_number']))
 
                     # add google calendar event
