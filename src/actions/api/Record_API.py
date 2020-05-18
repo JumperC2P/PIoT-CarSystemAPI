@@ -93,10 +93,10 @@ class Record_API:
                         car['body_type'], seat)
                     title = "A Car has been booked - Record ID: {}".format(record_id)
 
-                    # Google_Calendar_Utils().insert(title, car['car_location'], description,
-                    #                                content['book_info']['est_rent_date'],
-                    #                                content['book_info']['est_return_date'],
-                    #                                user['email'])
+                    Google_Calendar_Utils().insert(title, car['car_location'], description,
+                                                   content['book_info']['est_rent_date'],
+                                                   content['book_info']['est_return_date'],
+                                                   user['email'])
 
                     return jsonify({'result': {'code': '0', 'message': 'The car is booked by ' + user['username'] + '.'}})
                 except ResourceClosedError:
@@ -137,7 +137,7 @@ class Record_API:
                         Record_Service().cancel_booking(content['record'])
 
                         # delete google calendar event
-                        # Google_Calendar_Utils().delete(str(content['record']['record_id']))
+                        Google_Calendar_Utils().delete(str(content['record']['record_id']))
 
                         return jsonify({'result': {'code': '0', 'message': 'The booking is canceled .'}})
                     except ResourceClosedError:

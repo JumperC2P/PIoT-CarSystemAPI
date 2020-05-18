@@ -10,7 +10,7 @@ from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 import json
 
-from src.socket_handler import Socket_Handler
+from src.actions.utils.socket_handler import Socket_Handler
 
 pymysql.install_as_MySQLdb()
 
