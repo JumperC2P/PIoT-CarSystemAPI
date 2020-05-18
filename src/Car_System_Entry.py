@@ -28,8 +28,8 @@ class Car_System_Entry:
     db = DBConnection().db
 
     # Update HOST and PASSWORD appropriately.
-    # HOST = "35.189.29.28"
-    HOST = "127.0.0.1"
+    HOST = "35.189.29.28"
+    # HOST = "127.0.0.1"
     USER = "root"
     PASSWORD = "Pa55W0rd"
     DATABASE = "piot"
