@@ -126,8 +126,6 @@ class Record_API:
                         # check the car
                         car = Car_Service().find_by_car_id(content['record']['car_id'])
                         if car:
-                            print(car)
-                            print(car['car_status'] != car_status['B'])
                             if car['car_status'] != car_status['B']:
                                 return jsonify({'result': {'code': '1', 'message': 'The car has not been booked.'}})
                         else:

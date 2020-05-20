@@ -21,7 +21,7 @@ import os
 SCOPES = "https://www.googleapis.com/auth/calendar"
 store = file.Storage("token.json")
 creds = store.get()
-if (not creds or creds.invalid):
+if not creds or creds.invalid:
     flow = client.flow_from_clientsecrets(os.path.abspath(os.path.join(
         os.path.dirname(__file__), "credentials.json")), SCOPES)
     creds = tools.run_flow(flow, store)
