@@ -17,7 +17,7 @@ pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 
 # coding=UTF-8
@@ -58,6 +58,7 @@ class Car_System_Entry:
 
         reason = Socket_Handler().action_decider(data[0])
         message = [{"Reason": reason}]
+        print(message)
         emit('ap_socket', message)
 
 
