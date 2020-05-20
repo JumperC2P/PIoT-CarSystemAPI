@@ -130,6 +130,7 @@ class CarModel:
             and_(
                 text("c.make = cm.id "),
                 text("cm.name in :make" if len(params['makes']) != 0 else "1=:make"),
+                text("c.car_status in :status" if len(params['status']) != 0 else "1=:status"),
                 text("c.color in :color" if len(params['colors']) != 0 else "1=:color"),
                 text("c.body_type in :type" if len(params['types']) != 0 else "1=:type"),
                 text("c.seat_number in :seat" if len(params['seats']) != 0 else "1=:seat")
@@ -138,6 +139,7 @@ class CarModel:
 
         result = db.engine.execute(sql,
                                    make=params['makes'] if len(params['makes']) != 0 else "1",
+                                   status=params['status'] if len(params['status']) != 0 else "1",
                                    color=params['colors'] if len(params['colors']) != 0 else "1",
                                    type=params['types'] if len(params['types']) != 0 else "1",
                                    seat=params['seats'] if len(params['seats']) != 0 else "1"

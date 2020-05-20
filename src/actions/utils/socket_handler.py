@@ -2,7 +2,7 @@ import json
 import socket
 import time
 
-from src.actions.services.Car_Service import Car_Service
+from ..services.Car_Service import Car_Service
 
 
 class Socket_Handler:
