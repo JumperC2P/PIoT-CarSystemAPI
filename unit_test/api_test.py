@@ -31,7 +31,7 @@ class API_Test(unittest.TestCase):
 
     def test_login(self):
         resp = User_Actions().login(self._url, self._port, "Test", self._user['password'])
-        self.assertEqual(0, len(resp['result']))
+        self.assertEqual(1, len(resp['result']))
 
     def test_show_available_cars(self):
         params = {

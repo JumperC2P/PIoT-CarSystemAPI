@@ -21,7 +21,3 @@ class User_Actions:
         }
         response = requests.post(host+':'+port+"/register", headers=headers, data=user)
         return simplejson.loads(response.text)
-
-
-if __name__ == '__main__':
-    User_Actions().login("http://127.0.0.1", "5000", "Frank", "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f")
