@@ -9,7 +9,7 @@ from actions.Record_Actions import Record_Actions
 class API_Test(unittest.TestCase):
 
     def setUp(self):
-        self._url = "http://127.0.0.1"
+        self._url = "http://192.168.1.72"
         self._port = "5000"
         self._user = {
             "username": "Test",
