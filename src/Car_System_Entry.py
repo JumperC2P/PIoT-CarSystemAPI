@@ -12,6 +12,8 @@ import json
 
 from actions.utils.socket_handler import Socket_Handler
 
+from src.actions.api.Report_API import report_api
+
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
@@ -28,8 +30,8 @@ class Car_System_Entry:
     db = DBConnection().db
 
     # Update HOST and PASSWORD appropriately.
-    HOST = "35.189.29.28"
-    # HOST = "127.0.0.1"
+    # HOST = "35.189.29.28"
+    HOST = "127.0.0.1"
     USER = "root"
     PASSWORD = "Pa55W0rd"
     DATABASE = "piot"
@@ -45,6 +47,7 @@ class Car_System_Entry:
     app.register_blueprint(user_api)
     app.register_blueprint(car_api)
     app.register_blueprint(record_api)
+    app.register_blueprint(report_api)
 
     @socketio.on('mp_socket')
     def mp_socket(data):

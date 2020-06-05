@@ -1,8 +1,9 @@
 from flask import Flask, Blueprint, request, jsonify, render_template
-from sqlalchemy import text
+from sqlalchemy import text, and_
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from ..db_connection.DBConnection import DBConnection
+from sqlalchemy.sql import select
 
 db = DBConnection().db
 ma = DBConnection().ma
@@ -102,3 +103,51 @@ class UserModel:
         db.session.commit()
 
         return newUser
+
+    def update(self, user_id, first_name, last_name, email):
+        """update a user
+        """
+        sql = text("update Users set first_name = :first_name, last_name = :last_name, email=:email where user_id = :user_id").execution_options(autocommit=True)
+        db.engine.execute(sql, first_name=first_name, last_name=last_name, email=email, user_id=user_id)
+
+    def updatePassword(self, new_password, user_id):
+        """update user's password
+        """
+        sql = text(
+            "update Users set password = :new_password where user_id = :user_id").execution_options(
+            autocommit=True)
+        db.engine.execute(sql, new_password=new_password, user_id=user_id)
+
+    def getUsersWithparams(self, params):
+        """Find users' information with indicated conditions
+
+        :return: a list of users
+
+        """
+        sql = select([text(
+            " user_id, username, email, password, first_name, last_name, role from Users ")]) \
+            .where(
+            and_(
+                text("username like :username" if len(params['username']) != 0 else "1=:username"),
+                text("email like :email" if len(params['email']) != 0 else "1=:email"),
+                text("first_name like :first_name" if len(params['first_name']) != 0 else "1=:first_name"),
+                text("last_name like :last_name" if len(params['last_name']) != 0 else "1=:last_name"),
+                text("role in :role" if len(params['role']) != 0 else "1=:role")
+            )
+        )
+        result = db.engine.execute(sql,
+                                   username=params['username'] if len(params['username']) != 0 else "1",
+                                   email=params['email'] if len(params['email']) != 0 else "1",
+                                   first_name=params['first_name'] if len(params['first_name']) != 0 else "1",
+                                   last_name=params['last_name'] if len(params['last_name']) != 0 else "1",
+                                   role=params['role'] if len(params['role']) != 0 else "1"
+                                   )
+        return result
+
+    def deleteUser(self, user_id):
+        """delete user
+        """
+        sql = text("delete from Users where user_id = :user_id").execution_options(autocommit=True)
+        db.engine.execute(sql, user_id=user_id)
+
+

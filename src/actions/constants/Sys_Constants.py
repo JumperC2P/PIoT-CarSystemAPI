@@ -4,6 +4,7 @@ car_status = dict()
 car_status['A'] = "Available"
 car_status['B'] = "Booked"
 car_status['R'] = "Rented"
+car_status['P'] = "Reported"
 
 rent_status = dict()
 rent_status[None] = "Booked"

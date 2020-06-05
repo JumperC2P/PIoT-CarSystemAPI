@@ -50,7 +50,6 @@ class Car_API:
                 user = User_Service().login(content['username'], content['password'])
                 if user:
                     result = Car_Service().getMakes()
-                    print([dict(row) for row in result])
                     return jsonify({'result': [dict(row) for row in result]})
             except:
                 return "Please check your username and password."
@@ -143,4 +142,97 @@ class Car_API:
         else:
             return "Wrong Content Type"
 
+    @car_api.route("/addCar", methods=["POST"])
+    def addCar():
+        """Endpoint to add car
 
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            # try:
+            user = User_Service().login(content['username'], content['password'])
+            if user:
+                result = Car_Service().addCar(content['car'])
+                if result:
+                    return jsonify({'result': True})
+                else:
+                    return jsonify({'result': False})
+
+            # except:
+            #     return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @car_api.route("/removeCar", methods=["POST"])
+    def removeCar():
+        """Endpoint to remove car
+
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            try:
+                user = User_Service().login(content['username'], content['password'])
+                if user:
+                    Car_Service().removeCar(content['car_id'])
+                    return jsonify({'result': True})
+                else:
+                    return jsonify({'result': False})
+
+            except:
+                return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @car_api.route("/reportCar", methods=["POST"])
+    def reportCar():
+        """Endpoint to remove car
+
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            # try:
+            user = User_Service().login(content['username'], content['password'])
+            if user:
+                Car_Service().reportCar(content['car_id'], content['admin_id'], content['issue'])
+                return jsonify({'result': True})
+            else:
+                return jsonify({'result': False})
+
+            # except:
+            #     return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @car_api.route("/updateCar", methods=["POST"])
+    def updateCar():
+        """Endpoint to add car
+
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            try:
+                user = User_Service().login(content['username'], content['password'])
+                if user:
+                    Car_Service().updateCar(content['car'])
+                    return jsonify({'result': True})
+
+            except:
+                return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"

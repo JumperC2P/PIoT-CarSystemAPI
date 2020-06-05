@@ -1,11 +1,12 @@
 from .Record_Service import Record_Service
+from .Report_Service import Report_Service
 from ..constants.Sys_Constants import car_status
 from ..model.Car import Car
 from ..model.Car import CarModel
 from ..model.Car_Make import Car_Make
 from ..model.Car_Make import CarMakeModel
-from ..model.Record import RecordModel
 from .User_Service import User_Service
+from ..model.Report import ReportModel
 
 
 class Car_Service:
@@ -124,5 +125,18 @@ class Car_Service:
         RecordModel().update_is_return(record['record_id'], 1)
 
         return 2  # The return process is completed successfully.
+
+    def addCar(self, car):
+        return CarModel().add(int(car['cost']), car['make'], car['body_type'], car['seat_number'], car['car_location'], car['color'])
+
+    def updateCar(self, car):
+        CarModel().updateCar(car['car_id'], car['cost'], car['make'], car['body_type'], car['seat_number'], car['car_location'], car['color'])
+
+    def removeCar(self, car_id):
+        CarModel().removeCar(int(car_id))
+
+    def reportCar(self, car_id, admin_id, issue):
+        CarModel().update_status(car_id, car_status['P'])
+        Report_Service().add(car_id, admin_id, issue)
 
 

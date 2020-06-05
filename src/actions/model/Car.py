@@ -2,6 +2,8 @@ from flask import Flask, Blueprint, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text, and_
 from flask_marshmallow import Marshmallow
+
+from ..constants.Sys_Constants import car_status
 from ..db_connection.DBConnection import DBConnection
 from sqlalchemy.sql import select
 
@@ -31,6 +33,15 @@ class Car(db.Model):
         self.car_status = car_status
         self.car_location = car_location
         self.color = color
+
+    def __init__(self, cost, make, body_type, seat_number, car_location, car_status, color):
+        self.cost = cost
+        self.make = make
+        self.body_type = body_type
+        self.seat_number = seat_number
+        self.car_location = car_location
+        self.color = color
+        self.car_status = car_status
 
 
 class CarSchema(ma.Schema):
@@ -145,3 +156,32 @@ class CarModel:
                                    seat=params['seats'] if len(params['seats']) != 0 else "1"
                                    )
         return result
+
+    def add(self, cost, make, body_type, seat_number, car_location, color):
+        """add a car
+
+        :return: the car object
+
+        """
+        newCar = Car(cost=cost, make=make, body_type=body_type, seat_number=seat_number,
+                     car_location=car_location, color=color, car_status=car_status['A'])
+
+        db.session.add(newCar)
+        db.session.commit()
+
+        return newCar
+
+
+    def updateCar(self, car_id, cost, make, body_type, seat_number, car_location, color):
+        """Update car information
+        """
+        sql = text("update Cars set cost = :cost, make=:make, body_type=:body_type, seat_number=:seat_number, car_location=:car_location, color=:color where car_id = :car_id").execution_options(autocommit=True)
+        db.engine.execute(sql, cost=cost, make=make, body_type=body_type, seat_number=seat_number, car_location=car_location, color=color, car_id=car_id)
+
+    def removeCar(self, car_id):
+        """Remove car
+        """
+        sql = text("delete from Cars where car_id = :car_id").execution_options(autocommit=True)
+        db.engine.execute(sql, car_id=car_id)
+
+

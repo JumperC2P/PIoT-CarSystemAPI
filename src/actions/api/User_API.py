@@ -26,7 +26,6 @@ class User_API:
                 user = User_Service().login(content['username'], content['password'])
                 if user:
                     user['password'] = content['password']
-                    print(user)
                     user = {'result': [user]}
                     user = jsonify(user)
                     return user
@@ -68,6 +67,54 @@ class User_API:
         else:
             return "Wrong Content Type"
 
+    @user_api.route("/updateUser", methods=["POST"])
+    def updateUser():
+        """
+        Endpoint to update user information.
+
+        :return: the user information
+
+        """
+        if request.content_type.startswith("application/x-www-form-urlencoded"):
+            content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
+            try:
+                user = User_Service().updateUser(content['user_id'], content['a_username'], content['a_password'],
+                                                 content['first_name'],
+                                                 content['last_name'], content['email'])
+                if user:
+                    user = jsonify({'result': user})
+                    return user
+            except:
+                return "Please check your information."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+    @user_api.route("/updatePassword", methods=["POST"])
+    def updatePassword():
+        """
+        Endpoint to update user password.
+
+        :return: the user information with new password
+
+        """
+        if request.content_type.startswith("application/x-www-form-urlencoded"):
+            content = ParserUtils().parse_qs_plus(urllib.parse.parse_qs(request.get_data().decode("utf-8")))
+            try:
+                print(content)
+                user = User_Service().updatePassword(content['user_id'], content['username'], content['old_password'],
+                                                     content['new_password'])
+                if user:
+                    user = jsonify({'result': user})
+                    return user
+            except:
+                return "Please check your information."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
     @user_api.route("/checkUserName", methods=["POST"])
     def checkUserName():
         """
@@ -92,3 +139,50 @@ class User_API:
             return jsonify({'result': []})
         else:
             return "Wrong Content Type"
+
+    @user_api.route("/getUsersWithparams", methods=["POST"])
+    def getUsersWithparams():
+        """Endpoint to get users' details with indicated conditions
+
+        :return: a list of users with indicated conditions
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            # try:
+            user = User_Service().login(content['username'], content['password'])
+            if user:
+                result = User_Service().getUsersWithparams(content['params'])
+                return jsonify({'result': [dict(row) for row in result]})
+            # except:
+            #     return jsonify({'result': "Please check your username and password."})
+
+            return jsonify({'result': []})
+        else:
+            return jsonify({'result': "Wrong Content Type"})
+
+    @user_api.route("/deleteUser", methods=["POST"])
+    def deleteUser():
+        """Endpoint to delete a user
+
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            try:
+                user = User_Service().login(content['username'], content['password'])
+                if user:
+                    User_Service().deleteUser(content['user_id'])
+                    return jsonify({'result': True})
+                else:
+                    return jsonify({'result': False})
+
+            except:
+                return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
+
