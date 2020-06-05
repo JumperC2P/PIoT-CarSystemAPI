@@ -65,6 +65,22 @@ class RecordModel:
         sql = db.text("select record_id, car_id, user_id, is_return, est_rent_date, est_return_date from Records where car_id = :car_id and user_id = :user_id and is_return = :is_return and is_cancel = :is_cancel")
         return db.engine.execute(sql, car_id=car_id, user_id=user_id, is_return=is_return, is_cancel=is_cancel)
 
+    def find_all(self):
+        """Query for the booking record of the user
+
+        :return: the booking record of the user
+
+        """
+        sql = select([db.text(
+            " c.car_id, c.cost, cm.name as 'make', c.body_type, c.seat_number, c.car_status, c.color, r.record_id, r.user_id, r.est_rent_date, r.est_return_date, r.is_return, r.is_cancel from Cars c, Car_Make cm, Records r "
+        )]).where(
+            and_(
+                text("c.make = cm.id "),
+                text("c.car_id = r.car_id ")
+            )
+        ).order_by(text(" record_id desc"))
+        return db.engine.execute(sql)
+
     def find_newest(self):
         """Query for the latest record
 

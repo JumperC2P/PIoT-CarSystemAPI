@@ -6,7 +6,7 @@ from ..model.Car import CarModel
 from ..model.Car_Make import Car_Make
 from ..model.Car_Make import CarMakeModel
 from .User_Service import User_Service
-from ..model.Report import ReportModel
+from ..model.Record import RecordModel
 
 
 class Car_Service:
@@ -121,7 +121,6 @@ class Car_Service:
             return 8  # Cannot find the record.
 
         CarModel().update_status(car_id, car_status['A'])
-
         RecordModel().update_is_return(record['record_id'], 1)
 
         return 2  # The return process is completed successfully.

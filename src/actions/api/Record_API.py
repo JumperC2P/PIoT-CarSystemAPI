@@ -52,7 +52,10 @@ class Record_API:
             try:
                 user = User_Service().login(content['username'], content['password'])
                 if user:
-                    result = Record_Service().find_history_by_user_id(user['user_id'])
+                    if user['role'] == 'Admin':
+                        result = Record_Service().find_all()
+                    else:
+                        result = Record_Service().find_history_by_user_id(user['user_id'])
                     return jsonify({'result': result})
             except:
                 return jsonify({'result': "Please check your username and password."})

@@ -7,6 +7,16 @@ from datetime import datetime
 class Record_Service:
     """Record_Service is a logic layer of booking actions."""
 
+    def find_all(self):
+        """In the method, it will find the booking history of the current user.
+
+        :return
+            all the booking records
+
+        """
+        histories = RecordModel().find_all()
+        return [dict(h) for h in histories]
+
     def find_records_by_user_id_with_all_return(self, user_id):
         """In the method, it is used to check whether the current user has no return cars or booking car.
 
