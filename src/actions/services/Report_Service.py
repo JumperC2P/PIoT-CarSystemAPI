@@ -20,10 +20,17 @@ class Report_Service:
         return [dict(r) for r in reports]
 
     def add(self, car_id, admin_id, issue):
-        print(admin_id)
-        print(issue)
+        """Add a report data to database"""
         ReportModel().add(car_id, issue, datetime.today(), admin_id)
 
     def update(self, report_id, car_id, engineer_id):
+        """Update the close date and engineer id to report
+
+        Also, update the car status in car table
+        """
         ReportModel().update(report_id, datetime.today(), engineer_id)
         CarModel().update_status(car_id, car_status['A'])
+
+    def find_the_new_one(self):
+        """Get the lateset report"""
+        return ReportModel().getLastReport()

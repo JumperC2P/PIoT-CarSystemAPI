@@ -7,6 +7,7 @@ from ..model.Car_Make import Car_Make
 from ..model.Car_Make import CarMakeModel
 from .User_Service import User_Service
 from ..model.Record import RecordModel
+from ..utils.Pushbullet_utils import Pushbullet_utils
 
 
 class Car_Service:
@@ -137,5 +138,16 @@ class Car_Service:
     def reportCar(self, car_id, admin_id, issue):
         CarModel().update_status(car_id, car_status['P'])
         Report_Service().add(car_id, admin_id, issue)
+        self.send_pushbullet_with_report_info()
+
+    def send_pushbullet_with_report_info(self):
+        report = Report_Service().find_the_new_one()
+        title = 'A car has been reported with issue.'
+        message = 'The details of the report:\nReport ID: ' + str(report.report_id) + '\nCar ID: ' + str(report.car_id) + '\nMake: ' + report.name + '\nBody Type: ' + report.body_type + '\nCar Location: http://maps.google.com/maps?q=' + report.car_location + '&z=18'
+        Pushbullet_utils().send_notification_via_pushbullet(title, message)
+
+
+
+
 
 

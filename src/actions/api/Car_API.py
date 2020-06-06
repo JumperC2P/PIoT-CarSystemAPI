@@ -215,6 +215,30 @@ class Car_API:
         else:
             return "Wrong Content Type"
 
+    @car_api.route("/pushtest", methods=["POST"])
+    def pushtest():
+        """Endpoint to remove car
+
+        :return: true if successfully
+
+        """
+        if request.content_type.startswith("application/json"):
+            content = json.loads(request.get_data())
+            # try:
+            user = User_Service().login(content['username'], content['password'])
+            if user:
+                Car_Service().send_pushbullet_with_report_info()
+                return jsonify({'result': True})
+            else:
+                return jsonify({'result': False})
+
+            # except:
+            #     return "Please check your username and password."
+
+            return jsonify({'result': []})
+        else:
+            return "Wrong Content Type"
+
     @car_api.route("/updateCar", methods=["POST"])
     def updateCar():
         """Endpoint to add car
