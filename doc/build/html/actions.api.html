@@ -179,6 +179,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Car_API is the entry point of car actions.</p>
 <dl class="py method">
+<dt id="actions.api.Car_API.Car_API.addCar">
+<code class="sig-name descname">addCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.addCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to add car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="actions.api.Car_API.Car_API.getBodyTypes">
 <code class="sig-name descname">getBodyTypes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.getBodyTypes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Endpoint to get all the body types of cars.</p>
@@ -244,6 +255,50 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="actions.api.Car_API.Car_API.pushtest">
+<code class="sig-name descname">pushtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.pushtest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to remove car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.Car_API.Car_API.removeCar">
+<code class="sig-name descname">removeCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.removeCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to remove car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.Car_API.Car_API.reportCar">
+<code class="sig-name descname">reportCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.reportCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to remove car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.Car_API.Car_API.updateCar">
+<code class="sig-name descname">updateCar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Car_API.Car_API.updateCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to add car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -301,6 +356,38 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-actions.api.Report_API">
+<span id="actions-api-report-api-module"></span><h2>actions.api.Report_API module<a class="headerlink" href="#module-actions.api.Report_API" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="actions.api.Report_API.Report_API">
+<em class="property">class </em><code class="sig-prename descclassname">actions.api.Report_API.</code><code class="sig-name descname">Report_API</code><a class="headerlink" href="#actions.api.Report_API.Report_API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Report_API organises all the functions which are related to report cars.</p>
+<dl class="py method">
+<dt id="actions.api.Report_API.Report_API.closeReport">
+<code class="sig-name descname">closeReport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Report_API.Report_API.closeReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to close the reports</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true: success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.Report_API.Report_API.getReports">
+<code class="sig-name descname">getReports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.Report_API.Report_API.getReports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to get the reports</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of reports</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-actions.api.User_API">
 <span id="actions-api-user-api-module"></span><h2>actions.api.User_API module<a class="headerlink" href="#module-actions.api.User_API" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
@@ -320,6 +407,28 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="actions.api.User_API.User_API.deleteUser">
+<code class="sig-name descname">deleteUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.deleteUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to delete a user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.User_API.User_API.getUsersWithparams">
+<code class="sig-name descname">getUsersWithparams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.getUsersWithparams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to get users’ details with indicated conditions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of users with indicated conditions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="actions.api.User_API.User_API.login">
 <code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.login" title="Permalink to this definition">¶</a></dt>
 <dd><p>Endpoint to login.</p>
@@ -334,6 +443,28 @@
 <dt id="actions.api.User_API.User_API.register">
 <code class="sig-name descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Endpoint to register.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the user information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.User_API.User_API.updatePassword">
+<code class="sig-name descname">updatePassword</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.updatePassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to update user password.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the user information with new password</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.api.User_API.User_API.updateUser">
+<code class="sig-name descname">updateUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.api.User_API.User_API.updateUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Endpoint to update user information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>the user information</p>

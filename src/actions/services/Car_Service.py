@@ -127,20 +127,38 @@ class Car_Service:
         return 2  # The return process is completed successfully.
 
     def addCar(self, car):
+        """In the method, it is used to add a car
+
+        :param: car(JSON object): the car object
+
+        :return: the car object
+
+        """
         return CarModel().add(int(car['cost']), car['make'], car['body_type'], car['seat_number'], car['car_location'], car['color'])
 
     def updateCar(self, car):
+        """Update car details"""
         CarModel().updateCar(car['car_id'], car['cost'], car['make'], car['body_type'], car['seat_number'], car['car_location'], car['color'])
 
     def removeCar(self, car_id):
+        """Remove car from database"""
         CarModel().removeCar(int(car_id))
 
     def reportCar(self, car_id, admin_id, issue):
+        """
+        Report issues of cars
+        :param car_id: car id
+        :param admin_id: who report the issue
+        :param issue: issue
+        """
         CarModel().update_status(car_id, car_status['P'])
         Report_Service().add(car_id, admin_id, issue)
         self.send_pushbullet_with_report_info()
 
     def send_pushbullet_with_report_info(self):
+        """
+        Send notification via Pushbullet API
+        """
         report = Report_Service().find_the_new_one()
         title = 'A car has been reported with issue.'
         message = 'The details of the report:\nReport ID: ' + str(report.report_id) + '\nCar ID: ' + str(report.car_id) + '\nMake: ' + report.name + '\nBody Type: ' + report.body_type + '\nCar Location: http://maps.google.com/maps?q=' + report.car_location + '&z=18'

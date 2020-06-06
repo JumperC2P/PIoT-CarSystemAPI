@@ -175,7 +175,7 @@
 <span id="actions-model-car-module"></span><h2>actions.model.Car module<a class="headerlink" href="#module-actions.model.Car" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="actions.model.Car.Car">
-<em class="property">class </em><code class="sig-prename descclassname">actions.model.Car.</code><code class="sig-name descname">Car</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">cost</span></em>, <em class="sig-param"><span class="n">make</span></em>, <em class="sig-param"><span class="n">body_type</span></em>, <em class="sig-param"><span class="n">seat_number</span></em>, <em class="sig-param"><span class="n">car_status</span></em>, <em class="sig-param"><span class="n">car_location</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.Car" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">actions.model.Car.</code><code class="sig-name descname">Car</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cost</span></em>, <em class="sig-param"><span class="n">make</span></em>, <em class="sig-param"><span class="n">body_type</span></em>, <em class="sig-param"><span class="n">seat_number</span></em>, <em class="sig-param"><span class="n">car_location</span></em>, <em class="sig-param"><span class="n">car_status</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.Car" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
 <p>Car object to store data from database</p>
 <dl class="py attribute">
@@ -225,6 +225,17 @@
 <em class="property">class </em><code class="sig-prename descclassname">actions.model.Car.</code><code class="sig-name descname">CarModel</code><a class="headerlink" href="#actions.model.Car.CarModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CarModel is used to connect with the Cars table in database</p>
+<dl class="py method">
+<dt id="actions.model.Car.CarModel.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cost</span></em>, <em class="sig-param"><span class="n">make</span></em>, <em class="sig-param"><span class="n">body_type</span></em>, <em class="sig-param"><span class="n">seat_number</span></em>, <em class="sig-param"><span class="n">car_location</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.CarModel.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>add a car</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the car object</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="actions.model.Car.CarModel.find_by_car_id">
 <code class="sig-name descname">find_by_car_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.CarModel.find_by_car_id" title="Permalink to this definition">¶</a></dt>
@@ -300,6 +311,18 @@
 <dd class="field-odd"><p>a list of seat number</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.Car.CarModel.removeCar">
+<code class="sig-name descname">removeCar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.CarModel.removeCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove car</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.Car.CarModel.updateCar">
+<code class="sig-name descname">updateCar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">cost</span></em>, <em class="sig-param"><span class="n">make</span></em>, <em class="sig-param"><span class="n">body_type</span></em>, <em class="sig-param"><span class="n">seat_number</span></em>, <em class="sig-param"><span class="n">car_location</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Car.CarModel.updateCar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update car information</p>
 </dd></dl>
 
 <dl class="py method">
@@ -451,6 +474,17 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="actions.model.Record.RecordModel.find_all">
+<code class="sig-name descname">find_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Record.RecordModel.find_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for the booking record of the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the booking record of the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="actions.model.Record.RecordModel.find_by_car_id_and_user_id_and_return_and_cancel">
 <code class="sig-name descname">find_by_car_id_and_user_id_and_return_and_cancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">is_return</span></em>, <em class="sig-param"><span class="n">is_cancel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Record.RecordModel.find_by_car_id_and_user_id_and_return_and_cancel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query for the booking record of the user</p>
@@ -527,6 +561,115 @@
 <dl class="py attribute">
 <dt id="actions.model.Record.RecordSchema.opts">
 <code class="sig-name descname">opts</code><em class="property"> = &lt;marshmallow.schema.SchemaOpts object&gt;</em><a class="headerlink" href="#actions.model.Record.RecordSchema.opts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-actions.model.Report">
+<span id="actions-model-report-module"></span><h2>actions.model.Report module<a class="headerlink" href="#module-actions.model.Report" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="actions.model.Report.Report">
+<em class="property">class </em><code class="sig-prename descclassname">actions.model.Report.</code><code class="sig-name descname">Report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">report_id</span></em>, <em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">issue</span></em>, <em class="sig-param"><span class="n">report_date</span></em>, <em class="sig-param"><span class="n">close_date</span></em>, <em class="sig-param"><span class="n">admin_id</span></em>, <em class="sig-param"><span class="n">engineer_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.Report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<p>Report object to store data from database</p>
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.admin_id">
+<code class="sig-name descname">admin_id</code><a class="headerlink" href="#actions.model.Report.Report.admin_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.car_id">
+<code class="sig-name descname">car_id</code><a class="headerlink" href="#actions.model.Report.Report.car_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.close_date">
+<code class="sig-name descname">close_date</code><a class="headerlink" href="#actions.model.Report.Report.close_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.engineer_id">
+<code class="sig-name descname">engineer_id</code><a class="headerlink" href="#actions.model.Report.Report.engineer_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.issue">
+<code class="sig-name descname">issue</code><a class="headerlink" href="#actions.model.Report.Report.issue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.report_date">
+<code class="sig-name descname">report_date</code><a class="headerlink" href="#actions.model.Report.Report.report_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.Report.report_id">
+<code class="sig-name descname">report_id</code><a class="headerlink" href="#actions.model.Report.Report.report_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="actions.model.Report.ReportModel">
+<em class="property">class </em><code class="sig-prename descclassname">actions.model.Report.</code><code class="sig-name descname">ReportModel</code><a class="headerlink" href="#actions.model.Report.ReportModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ReportModel is used to connect with the Reports table in database</p>
+<dl class="py method">
+<dt id="actions.model.Report.ReportModel.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">car_id</span></em>, <em class="sig-param"><span class="n">issue</span></em>, <em class="sig-param"><span class="n">report_date</span></em>, <em class="sig-param"><span class="n">admin_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.ReportModel.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>add a record</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.Report.ReportModel.find_all_reports">
+<code class="sig-name descname">find_all_reports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.ReportModel.find_all_reports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for all reports.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of reports</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.Report.ReportModel.getLastReport">
+<code class="sig-name descname">getLastReport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.ReportModel.getLastReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the latest report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the latest report with car information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.Report.ReportModel.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">report_id</span></em>, <em class="sig-param"><span class="n">close_date</span></em>, <em class="sig-param"><span class="n">engineer_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.ReportModel.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update a report</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="actions.model.Report.ReportSchema">
+<em class="property">class </em><code class="sig-prename descclassname">actions.model.Report.</code><code class="sig-name descname">ReportSchema</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.Report.ReportSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_marshmallow.schema.Schema</span></code></p>
+<p>Report Schema for database connection</p>
+<dl class="py class">
+<dt id="actions.model.Report.ReportSchema.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#actions.model.Report.ReportSchema.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="actions.model.Report.ReportSchema.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('report_id', 'car_id', 'issue', 'report_date', 'close_date', 'admin_id', 'engineer_id')</em><a class="headerlink" href="#actions.model.Report.ReportSchema.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="actions.model.Report.ReportSchema.opts">
+<code class="sig-name descname">opts</code><em class="property"> = &lt;marshmallow.schema.SchemaOpts object&gt;</em><a class="headerlink" href="#actions.model.Report.ReportSchema.opts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -647,6 +790,12 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="actions.model.User.UserModel.deleteUser">
+<code class="sig-name descname">deleteUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.deleteUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete user</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="actions.model.User.UserModel.getLastUserId">
 <code class="sig-name descname">getLastUserId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.getLastUserId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the latest user id</p>
@@ -669,6 +818,17 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="actions.model.User.UserModel.getUsersWithparams">
+<code class="sig-name descname">getUsersWithparams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.getUsersWithparams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find users’ information with indicated conditions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of users</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="actions.model.User.UserModel.login">
 <code class="sig-name descname">login</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.login" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query for all user information</p>
@@ -677,6 +837,18 @@
 <dd class="field-odd"><p>a list of users</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.User.UserModel.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">first_name</span></em>, <em class="sig-param"><span class="n">last_name</span></em>, <em class="sig-param"><span class="n">email</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update a user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="actions.model.User.UserModel.updatePassword">
+<code class="sig-name descname">updatePassword</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_password</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.model.User.UserModel.updatePassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>update user’s password</p>
 </dd></dl>
 
 </dd></dl>

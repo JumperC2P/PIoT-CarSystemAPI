@@ -20,6 +20,14 @@ actions.services.Record\_Service module
    :undoc-members:
    :show-inheritance:
 
+actions.services.Report\_Service module
+---------------------------------------
+
+.. automodule:: actions.services.Report_Service
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 actions.services.User\_Service module
 -------------------------------------
 

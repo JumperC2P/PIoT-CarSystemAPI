@@ -20,6 +20,14 @@ actions.api.Record\_API module
    :undoc-members:
    :show-inheritance:
 
+actions.api.Report\_API module
+------------------------------
+
+.. automodule:: actions.api.Report_API
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 actions.api.User\_API module
 ----------------------------
 

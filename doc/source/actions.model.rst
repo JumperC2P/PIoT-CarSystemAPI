@@ -28,6 +28,14 @@ actions.model.Record module
    :undoc-members:
    :show-inheritance:
 
+actions.model.Report module
+---------------------------
+
+.. automodule:: actions.model.Report
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 actions.model.Role module
 -------------------------
 

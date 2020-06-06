@@ -169,6 +169,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.utils.html#actions.utils.socket_handler.Socket_Handler.action_decider">action_decider() (actions.utils.socket_handler.Socket_Handler method)</a>
+</li>
       <li>
     actions
 
@@ -195,6 +197,13 @@
 
       <ul>
         <li><a href="actions.api.html#module-actions.api.Record_API">module</a>
+</li>
+      </ul></li>
+      <li>
+    actions.api.Report_API
+
+      <ul>
+        <li><a href="actions.api.html#module-actions.api.Report_API">module</a>
 </li>
       </ul></li>
       <li>
@@ -253,8 +262,6 @@
         <li><a href="actions.model.html#module-actions.model.Car_Make">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     actions.model.Record
 
@@ -262,6 +269,15 @@
         <li><a href="actions.model.html#module-actions.model.Record">module</a>
 </li>
       </ul></li>
+      <li>
+    actions.model.Report
+
+      <ul>
+        <li><a href="actions.model.html#module-actions.model.Report">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     actions.model.Role
 
@@ -298,6 +314,13 @@
 </li>
       </ul></li>
       <li>
+    actions.services.Report_Service
+
+      <ul>
+        <li><a href="actions.services.html#module-actions.services.Report_Service">module</a>
+</li>
+      </ul></li>
+      <li>
     actions.services.User_Service
 
       <ul>
@@ -325,12 +348,40 @@
         <li><a href="actions.utils.html#module-actions.utils.parse_qs_plus">module</a>
 </li>
       </ul></li>
-      <li><a href="actions.model.html#actions.model.Record.RecordModel.add">add() (actions.model.Record.RecordModel method)</a>
+      <li>
+    actions.utils.Pushbullet_utils
 
       <ul>
-        <li><a href="actions.model.html#actions.model.User.UserModel.add">(actions.model.User.UserModel method)</a>
+        <li><a href="actions.utils.html#module-actions.utils.Pushbullet_utils">module</a>
 </li>
       </ul></li>
+      <li>
+    actions.utils.socket_handler
+
+      <ul>
+        <li><a href="actions.utils.html#module-actions.utils.socket_handler">module</a>
+</li>
+      </ul></li>
+      <li><a href="actions.model.html#actions.model.Car.CarModel.add">add() (actions.model.Car.CarModel method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.Record.RecordModel.add">(actions.model.Record.RecordModel method)</a>
+</li>
+        <li><a href="actions.model.html#actions.model.Report.ReportModel.add">(actions.model.Report.ReportModel method)</a>
+</li>
+        <li><a href="actions.model.html#actions.model.User.UserModel.add">(actions.model.User.UserModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.Report_Service.Report_Service.add">(actions.services.Report_Service.Report_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.api.html#actions.api.Car_API.Car_API.addCar">addCar() (actions.api.Car_API.Car_API method)</a>
+
+      <ul>
+        <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.addCar">(actions.services.Car_Service.Car_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.model.html#actions.model.Report.Report.admin_id">admin_id (actions.model.Report.Report attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -368,6 +419,8 @@
       <ul>
         <li><a href="actions.model.html#actions.model.Record.Record.car_id">(actions.model.Record.Record attribute)</a>
 </li>
+        <li><a href="actions.model.html#actions.model.Report.Report.car_id">(actions.model.Report.Report attribute)</a>
+</li>
       </ul></li>
       <li><a href="actions.model.html#actions.model.Car.Car.car_location">car_location (actions.model.Car.Car attribute)</a>
 </li>
@@ -401,6 +454,10 @@
         <li><a href="actions.services.html#actions.services.User_Service.User_Service.checkUserName">(actions.services.User_Service.User_Service method)</a>
 </li>
       </ul></li>
+      <li><a href="actions.model.html#actions.model.Report.Report.close_date">close_date (actions.model.Report.Report attribute)</a>
+</li>
+      <li><a href="actions.api.html#actions.api.Report_API.Report_API.closeReport">closeReport() (actions.api.Report_API.Report_API method)</a>
+</li>
       <li><a href="actions.model.html#actions.model.Car.Car.color">color (actions.model.Car.Car attribute)</a>
 </li>
       <li><a href="actions.model.html#actions.model.Car.Car.cost">cost (actions.model.Car.Car attribute)</a>
@@ -413,12 +470,20 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.db_connection.html#actions.db_connection.DBConnection.DBConnection.db">db (actions.db_connection.DBConnection.DBConnection attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.db_connection.html#actions.db_connection.DBConnection.DBConnection">DBConnection (class in actions.db_connection.DBConnection)</a>
 </li>
       <li><a href="actions.utils.html#actions.utils.google_calendar_utils.Google_Calendar_Utils.delete">delete() (actions.utils.google_calendar_utils.Google_Calendar_Utils method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.api.html#actions.api.User_API.User_API.deleteUser">deleteUser() (actions.api.User_API.User_API method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.User.UserModel.deleteUser">(actions.model.User.UserModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.User_Service.User_Service.deleteUser">(actions.services.User_Service.User_Service method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -426,6 +491,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.model.html#actions.model.User.User.email">email (actions.model.User.User attribute)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.Report.engineer_id">engineer_id (actions.model.Report.Report attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -446,21 +513,31 @@
 </li>
         <li><a href="actions.model.html#actions.model.Record.RecordSchema.Meta.fields">(actions.model.Record.RecordSchema.Meta attribute)</a>
 </li>
+        <li><a href="actions.model.html#actions.model.Report.ReportSchema.Meta.fields">(actions.model.Report.ReportSchema.Meta attribute)</a>
+</li>
         <li><a href="actions.model.html#actions.model.Role.RoleSchema.Meta.fields">(actions.model.Role.RoleSchema.Meta attribute)</a>
 </li>
         <li><a href="actions.model.html#actions.model.User.UserSchema.Meta.fields">(actions.model.User.UserSchema.Meta attribute)</a>
 </li>
       </ul></li>
+      <li><a href="actions.model.html#actions.model.Record.RecordModel.find_all">find_all() (actions.model.Record.RecordModel method)</a>
+
+      <ul>
+        <li><a href="actions.services.html#actions.services.Record_Service.Record_Service.find_all">(actions.services.Record_Service.Record_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.model.html#actions.model.Report.ReportModel.find_all_reports">find_all_reports() (actions.model.Report.ReportModel method)</a>
+</li>
       <li><a href="actions.model.html#actions.model.Car.CarModel.find_by_car_id">find_by_car_id() (actions.model.Car.CarModel method)</a>
 
       <ul>
         <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.find_by_car_id">(actions.services.Car_Service.Car_Service method)</a>
 </li>
       </ul></li>
-      <li><a href="actions.services.html#actions.services.Record_Service.Record_Service.find_by_car_id_and_user_id">find_by_car_id_and_user_id() (actions.services.Record_Service.Record_Service method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.services.html#actions.services.Record_Service.Record_Service.find_by_car_id_and_user_id">find_by_car_id_and_user_id() (actions.services.Record_Service.Record_Service method)</a>
+</li>
       <li><a href="actions.model.html#actions.model.Record.RecordModel.find_by_car_id_and_user_id_and_return_and_cancel">find_by_car_id_and_user_id_and_return_and_cancel() (actions.model.Record.RecordModel method)</a>
 
       <ul>
@@ -481,6 +558,8 @@
         <li><a href="actions.services.html#actions.services.Record_Service.Record_Service.find_records_by_user_id_with_all_return">(actions.services.Record_Service.Record_Service method)</a>
 </li>
       </ul></li>
+      <li><a href="actions.services.html#actions.services.Report_Service.Report_Service.find_the_new_one">find_the_new_one() (actions.services.Report_Service.Report_Service method)</a>
+</li>
       <li><a href="actions.model.html#actions.model.User.User.first_name">first_name (actions.model.User.User attribute)</a>
 </li>
   </ul></td>
@@ -523,6 +602,8 @@
         <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.getColors">(actions.services.Car_Service.Car_Service method)</a>
 </li>
       </ul></li>
+      <li><a href="actions.model.html#actions.model.Report.ReportModel.getLastReport">getLastReport() (actions.model.Report.ReportModel method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.model.html#actions.model.User.UserModel.getLastUserId">getLastUserId() (actions.model.User.UserModel method)</a>
@@ -535,6 +616,12 @@
       </ul></li>
       <li><a href="actions.api.html#actions.api.Record_API.Record_API.getRecords">getRecords() (actions.api.Record_API.Record_API method)</a>
 </li>
+      <li><a href="actions.api.html#actions.api.Report_API.Report_API.getReports">getReports() (actions.api.Report_API.Report_API method)</a>
+
+      <ul>
+        <li><a href="actions.services.html#actions.services.Report_Service.Report_Service.getReports">(actions.services.Report_Service.Report_Service method)</a>
+</li>
+      </ul></li>
       <li><a href="actions.api.html#actions.api.Car_API.Car_API.getSeatNumbers">getSeatNumbers() (actions.api.Car_API.Car_API method)</a>
 
       <ul>
@@ -545,6 +632,14 @@
       </ul></li>
       <li><a href="actions.model.html#actions.model.User.UserModel.getUser">getUser() (actions.model.User.UserModel method)</a>
 </li>
+      <li><a href="actions.api.html#actions.api.User_API.User_API.getUsersWithparams">getUsersWithparams() (actions.api.User_API.User_API method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.User.UserModel.getUsersWithparams">(actions.model.User.UserModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.User_Service.User_Service.getUsersWithparams">(actions.services.User_Service.User_Service method)</a>
+</li>
+      </ul></li>
       <li><a href="actions.api.html#actions.api.Car_API.Car_API.getWholeCars">getWholeCars() (actions.api.Car_API.Car_API method)</a>
 </li>
       <li><a href="actions.utils.html#actions.utils.google_calendar_utils.Google_Calendar_Utils">Google_Calendar_Utils (class in actions.utils.google_calendar_utils)</a>
@@ -564,6 +659,8 @@
       <li><a href="actions.model.html#actions.model.Record.Record.is_cancel">is_cancel (actions.model.Record.Record attribute)</a>
 </li>
       <li><a href="actions.model.html#actions.model.Record.Record.is_return">is_return (actions.model.Record.Record attribute)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.Report.issue">issue (actions.model.Report.Report attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -603,6 +700,8 @@
 </li>
         <li><a href="actions.api.html#module-actions.api.Record_API">actions.api.Record_API</a>
 </li>
+        <li><a href="actions.api.html#module-actions.api.Report_API">actions.api.Report_API</a>
+</li>
         <li><a href="actions.api.html#module-actions.api.User_API">actions.api.User_API</a>
 </li>
         <li><a href="actions.constants.html#module-actions.constants">actions.constants</a>
@@ -621,6 +720,8 @@
 </li>
         <li><a href="actions.model.html#module-actions.model.Record">actions.model.Record</a>
 </li>
+        <li><a href="actions.model.html#module-actions.model.Report">actions.model.Report</a>
+</li>
         <li><a href="actions.model.html#module-actions.model.Role">actions.model.Role</a>
 </li>
         <li><a href="actions.model.html#module-actions.model.User">actions.model.User</a>
@@ -631,6 +732,8 @@
 </li>
         <li><a href="actions.services.html#module-actions.services.Record_Service">actions.services.Record_Service</a>
 </li>
+        <li><a href="actions.services.html#module-actions.services.Report_Service">actions.services.Report_Service</a>
+</li>
         <li><a href="actions.services.html#module-actions.services.User_Service">actions.services.User_Service</a>
 </li>
         <li><a href="actions.utils.html#module-actions.utils">actions.utils</a>
@@ -638,6 +741,10 @@
         <li><a href="actions.utils.html#module-actions.utils.google_calendar_utils">actions.utils.google_calendar_utils</a>
 </li>
         <li><a href="actions.utils.html#module-actions.utils.parse_qs_plus">actions.utils.parse_qs_plus</a>
+</li>
+        <li><a href="actions.utils.html#module-actions.utils.Pushbullet_utils">actions.utils.Pushbullet_utils</a>
+</li>
+        <li><a href="actions.utils.html#module-actions.utils.socket_handler">actions.utils.socket_handler</a>
 </li>
       </ul></li>
   </ul></td>
@@ -661,6 +768,8 @@
 </li>
         <li><a href="actions.model.html#actions.model.Record.RecordSchema.opts">(actions.model.Record.RecordSchema attribute)</a>
 </li>
+        <li><a href="actions.model.html#actions.model.Report.ReportSchema.opts">(actions.model.Report.ReportSchema attribute)</a>
+</li>
         <li><a href="actions.model.html#actions.model.Role.RoleSchema.opts">(actions.model.Role.RoleSchema attribute)</a>
 </li>
         <li><a href="actions.model.html#actions.model.User.UserSchema.opts">(actions.model.User.UserSchema attribute)</a>
@@ -674,11 +783,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.utils.html#actions.utils.parse_qs_plus.ParserUtils.parse_qs_plus">parse_qs_plus() (actions.utils.parse_qs_plus.ParserUtils method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.utils.html#actions.utils.parse_qs_plus.ParserUtils">ParserUtils (class in actions.utils.parse_qs_plus)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.model.html#actions.model.User.User.password">password (actions.model.User.User attribute)</a>
+</li>
+      <li><a href="actions.utils.html#actions.utils.Pushbullet_utils.Pushbullet_utils">Pushbullet_utils (class in actions.utils.Pushbullet_utils)</a>
+</li>
+      <li><a href="actions.api.html#actions.api.Car_API.Car_API.pushtest">pushtest() (actions.api.Car_API.Car_API method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -706,9 +819,39 @@
         <li><a href="actions.services.html#actions.services.User_Service.User_Service.register">(actions.services.User_Service.User_Service method)</a>
 </li>
       </ul></li>
+      <li><a href="actions.api.html#actions.api.Car_API.Car_API.removeCar">removeCar() (actions.api.Car_API.Car_API method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.Car.CarModel.removeCar">(actions.model.Car.CarModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.removeCar">(actions.services.Car_Service.Car_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.rent">rent() (actions.services.Car_Service.Car_Service method)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.Report">Report (class in actions.model.Report)</a>
+</li>
+      <li><a href="actions.api.html#actions.api.Report_API.Report_API">Report_API (class in actions.api.Report_API)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.rent">rent() (actions.services.Car_Service.Car_Service method)</a>
+      <li><a href="actions.model.html#actions.model.Report.Report.report_date">report_date (actions.model.Report.Report attribute)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.Report.report_id">report_id (actions.model.Report.Report attribute)</a>
+</li>
+      <li><a href="actions.services.html#actions.services.Report_Service.Report_Service">Report_Service (class in actions.services.Report_Service)</a>
+</li>
+      <li><a href="actions.api.html#actions.api.Car_API.Car_API.reportCar">reportCar() (actions.api.Car_API.Car_API method)</a>
+
+      <ul>
+        <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.reportCar">(actions.services.Car_Service.Car_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.model.html#actions.model.Report.ReportModel">ReportModel (class in actions.model.Report)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.ReportSchema">ReportSchema (class in actions.model.Report)</a>
+</li>
+      <li><a href="actions.model.html#actions.model.Report.ReportSchema.Meta">ReportSchema.Meta (class in actions.model.Report)</a>
 </li>
       <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.return_car">return_car() (actions.services.Car_Service.Car_Service method)</a>
 </li>
@@ -732,18 +875,58 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.model.html#actions.model.Car.Car.seat_number">seat_number (actions.model.Car.Car attribute)</a>
 </li>
+      <li><a href="actions.utils.html#actions.utils.Pushbullet_utils.Pushbullet_utils.send_notification_via_pushbullet">send_notification_via_pushbullet() (actions.utils.Pushbullet_utils.Pushbullet_utils static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.send_pushbullet_with_report_info">send_pushbullet_with_report_info() (actions.services.Car_Service.Car_Service method)</a>
+</li>
+      <li><a href="actions.utils.html#actions.utils.socket_handler.Socket_Handler">Socket_Handler (class in actions.utils.socket_handler)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.model.html#actions.model.Report.ReportModel.update">update() (actions.model.Report.ReportModel method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.User.UserModel.update">(actions.model.User.UserModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.Report_Service.Report_Service.update">(actions.services.Report_Service.Report_Service method)</a>
+</li>
+      </ul></li>
       <li><a href="actions.model.html#actions.model.Record.RecordModel.update_is_cancel">update_is_cancel() (actions.model.Record.RecordModel method)</a>
 </li>
       <li><a href="actions.model.html#actions.model.Record.RecordModel.update_is_return">update_is_return() (actions.model.Record.RecordModel method)</a>
 </li>
       <li><a href="actions.model.html#actions.model.Car.CarModel.update_status">update_status() (actions.model.Car.CarModel method)</a>
 </li>
+      <li><a href="actions.api.html#actions.api.Car_API.Car_API.updateCar">updateCar() (actions.api.Car_API.Car_API method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.Car.CarModel.updateCar">(actions.model.Car.CarModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.Car_Service.Car_Service.updateCar">(actions.services.Car_Service.Car_Service method)</a>
+</li>
+      </ul></li>
+      <li><a href="actions.api.html#actions.api.User_API.User_API.updatePassword">updatePassword() (actions.api.User_API.User_API method)</a>
+
+      <ul>
+        <li><a href="actions.model.html#actions.model.User.UserModel.updatePassword">(actions.model.User.UserModel method)</a>
+</li>
+        <li><a href="actions.services.html#actions.services.User_Service.User_Service.updatePassword">(actions.services.User_Service.User_Service method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="actions.api.html#actions.api.User_API.User_API.updateUser">updateUser() (actions.api.User_API.User_API method)</a>
+
+      <ul>
+        <li><a href="actions.services.html#actions.services.User_Service.User_Service.updateUser">(actions.services.User_Service.User_Service method)</a>
+</li>
+      </ul></li>
       <li><a href="actions.model.html#actions.model.User.User">User (class in actions.model.User)</a>
 </li>
       <li><a href="actions.api.html#actions.api.User_API.User_API">User_API (class in actions.api.User_API)</a>
@@ -754,8 +937,6 @@
         <li><a href="actions.model.html#actions.model.User.User.user_id">(actions.model.User.User attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="actions.services.html#actions.services.User_Service.User_Service">User_Service (class in actions.services.User_Service)</a>
 </li>
       <li><a href="actions.model.html#actions.model.User.UserModel">UserModel (class in actions.model.User)</a>
