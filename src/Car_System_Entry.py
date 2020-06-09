@@ -58,9 +58,8 @@ class Car_System_Entry:
         :param data sent from agent pi
 
         """
-
-        reason = Socket_Handler().action_decider(data[0])
-        message = [{"Reason": reason}]
+        print(data)
+        message = Socket_Handler().action_decider(data[0])
         print(message)
         emit('ap_socket', message)
 

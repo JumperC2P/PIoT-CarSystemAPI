@@ -161,11 +161,16 @@ class Car_Service:
         """
         report = Report_Service().find_the_new_one()
         title = 'A car has been reported with issue.'
-        message = 'The details of the report:\nReport ID: ' + str(report.report_id) + '\nCar ID: ' + str(report.car_id) + '\nMake: ' + report.name + '\nBody Type: ' + report.body_type + '\nCar Location: http://maps.google.com/maps?q=' + report.car_location + '&z=18'
+        message = 'The details of the report:\nReport ID: ' + str(report.report_id) + '\nCar ID: ' + str(report.car_id) + '\nMake: ' + report.name + '\nBody Type: ' + report.body_type + '\nCar Location: http://maps.google.com/maps?q=' + report.car_location + '&z=18\nIssue: ' + report.issue
         Pushbullet_utils().send_notification_via_pushbullet(title, message)
 
-
-
-
+    def find_by_make(self, data):
+        params = dict()
+        params['makes'] = [data['name'].lower().capitalize()]
+        params['status'] = []
+        params['colors'] = []
+        params['types'] = []
+        params['seats'] = []
+        return self.getCarsWithparams(params)
 
 

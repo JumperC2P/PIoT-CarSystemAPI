@@ -147,7 +147,7 @@ class CarModel:
                 text("c.seat_number in :seat" if len(params['seats']) != 0 else "1=:seat")
             )
         )
-
+        print(sql)
         result = db.engine.execute(sql,
                                    make=params['makes'] if len(params['makes']) != 0 else "1",
                                    status=params['status'] if len(params['status']) != 0 else "1",

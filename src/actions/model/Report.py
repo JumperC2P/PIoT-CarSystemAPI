@@ -86,6 +86,6 @@ class ReportModel:
         :return: the latest report with car information
 
         """
-        reports = db.engine.execute(text("select p.report_id, c.car_id, m.name, c.body_type, c.car_location from Reports p, Cars c, Car_Make m where p.car_id = c.car_id and m.id = c.make order by p.report_id desc limit 1"))
+        reports = db.engine.execute(text("select p.report_id, c.car_id, m.name, c.body_type, p.issue, c.car_location from Reports p, Cars c, Car_Make m where p.car_id = c.car_id and m.id = c.make order by p.report_id desc limit 1"))
         for report in reports:
             return report

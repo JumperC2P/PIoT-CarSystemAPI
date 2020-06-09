@@ -19,8 +19,9 @@ class User(db.Model):
     first_name = db.Column(db.Text)
     last_name = db.Column(db.Text)
     role = db.Column(db.Text)
+    mac_address = db.Column(db.Text)
 
-    def __init__(self, user_id, username, password, email, first_name, last_name, role):
+    def __init__(self, user_id, username, password, email, first_name, last_name, role, mac_address):
         self.user_id = user_id
         self.username = username
         self.password = password
@@ -28,6 +29,7 @@ class User(db.Model):
         self.last_name = last_name
         self.first_name = first_name
         self.role = role
+        self.mac_address = mac_address
 
 
 class UserSchema(ma.Schema):
@@ -39,7 +41,7 @@ class UserSchema(ma.Schema):
 
     class Meta:
         # Fields to expose.
-        fields = ("user_id", "username", "password", "email", "first_name", "last_name", "role")
+        fields = ("user_id", "username", "password", "email", "first_name", "last_name", "role", "mac_address")
 
 
 userSchema = UserSchema()
@@ -107,7 +109,9 @@ class UserModel:
     def update(self, user_id, first_name, last_name, email):
         """update a user
         """
-        sql = text("update Users set first_name = :first_name, last_name = :last_name, email=:email where user_id = :user_id").execution_options(autocommit=True)
+        sql = text(
+            "update Users set first_name = :first_name, last_name = :last_name, email=:email where user_id = :user_id").execution_options(
+            autocommit=True)
         db.engine.execute(sql, first_name=first_name, last_name=last_name, email=email, user_id=user_id)
 
     def updatePassword(self, new_password, user_id):
@@ -150,4 +154,20 @@ class UserModel:
         sql = text("delete from Users where user_id = :user_id").execution_options(autocommit=True)
         db.engine.execute(sql, user_id=user_id)
 
+    def find_by_mac_address(self, mac_address):
+        """Find user by Mac address
+        """
+        users = db.engine.execute(text("select * from Users where mac_address= :mac_address").
+                                  bindparams(mac_address=mac_address))
+        for u in users:
+            return dict(u)
+        return None
 
+    def find_by_user_id(self, user_id):
+        """Find user by user id
+        """
+        users = db.engine.execute(text("select * from Users where user_id= :user_id").
+                                  bindparams(user_id=user_id))
+        for u in users:
+            return dict(u)
+        return None

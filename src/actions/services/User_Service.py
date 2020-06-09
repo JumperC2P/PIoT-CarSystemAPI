@@ -74,7 +74,6 @@ class User_Service:
 
         """
         user = self.login(a_username, a_password)
-        print(user);
         if user:
 
             UserModel().update(user_id, first_name, last_name, email)
@@ -95,7 +94,6 @@ class User_Service:
 
         """
         user = UserModel().checkUserName(username)
-        print(user)
         for u in user:
             return dict(u)
         return None
@@ -117,3 +115,9 @@ class User_Service:
 
     def deleteUser(self, user_id):
         UserModel().deleteUser(user_id)
+
+    def find_by_mac_address(self, data):
+        return UserModel().find_by_mac_address(data['mac_address'])
+
+    def find_by_user_id(self, data):
+        return UserModel().find_by_user_id(data['user_id'])
