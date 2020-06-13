@@ -99,7 +99,7 @@ class UserModel:
 
         """
         newUser = User(user_id=user_id, username=username, password=password, first_name=first_name,
-                       last_name=last_name, email=email, role=role)
+                       last_name=last_name, email=email, role=role, mac_address=None)
 
         db.session.add(newUser)
         db.session.commit()

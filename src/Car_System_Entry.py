@@ -12,7 +12,7 @@ import json
 
 from actions.utils.socket_handler import Socket_Handler
 
-from src.actions.api.Report_API import report_api
+from actions.api.Report_API import report_api
 
 pymysql.install_as_MySQLdb()
 

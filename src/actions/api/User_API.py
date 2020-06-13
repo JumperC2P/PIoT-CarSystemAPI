@@ -60,7 +60,8 @@ class User_API:
                     new_user['role'] = user.role
                     user = jsonify({'result': new_user})
                     return user
-            except:
+            except Exception as e:
+                print(e)
                 return "Please check your information."
 
             return jsonify({'result': []})
